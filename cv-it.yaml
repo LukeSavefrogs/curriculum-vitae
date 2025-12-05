@@ -37,7 +37,7 @@ cv:
         highlights:
           - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
           - Monitoraggio e gestione del sistema IBM z/TPF, garantendone il regolare funzionamento e le prestazioni
-          - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a incidenti per minimizzare i tempi di inattività
+          - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a incident per minimizzare i tempi di inattività
           - Attività di build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e non produzione
           - Gestione dei backup di sistema (multipli OS) tramite Tivoli Storage Manager (TSM)
       
@@ -62,7 +62,7 @@ cv:
           - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
           - Monitoraggio e gestione di celle WAS, server LDAP e MQ di produzione e non produzione
           - Attività di base di amministrazione Linux relative a WAS, quali gestione utenti, monitoraggio e gestione dello spazio su disco
-          - Gestione di ticket e incidenti, fornendo soluzioni rapide per ridurre al minimo i tempi di inattività
+          - Gestione di ticket e incident, fornendo soluzioni rapide per ridurre al minimo i tempi di inattività
           - Esecuzione di attività di manutenzione ordinaria, tra cui deployment applicativi, riavvii dei server e analisi/risoluzione dei problemi dai log
           - Sviluppo e manutenzione di script (Bash, Jython, Perl) per automatizzare attività comuni, migliorando l'efficienza e riducendo gli errori
           - Sviluppo di uno strumento interno in JavaScript per automatizzare il sistema di ticketing, riducendo il lavoro manuale
