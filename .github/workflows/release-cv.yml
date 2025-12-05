@@ -49,3 +49,22 @@ jobs:
           fail_on_unmatched_files: true
           files: |
             build/release/*.pdf
+      
+      - name: Add summary message
+        run: |
+          cat <<-EOF >> $GITHUB_STEP_SUMMARY
+          # New CV Release Created
+          A new CV version has been released: **${{ steps.version.outputs.CV_VERSION }}**
+
+          You can download the generated CV files from the [Releases](https://github.com/${{ github.repository }}/releases/tag/${{ steps.version.outputs.CV_VERSION }})
+          
+          ## Generated CV Files
+          | Language | File Name |
+          |----------|-----------|
+          $(for file in build/release/*.pdf; do
+              filename="$(basename "$file")"
+              lang="${filename##*-}"
+              lang="${lang%.pdf}"
+              echo "| ${lang} | ${filename} |"
+            done)
+          EOF
