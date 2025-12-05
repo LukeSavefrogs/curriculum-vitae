@@ -100,7 +100,7 @@ cv:
           - Sviluppo e manutenzione di script Jython (*Jython v2.1*) per automatizzare attività di amministrazione WebSphere Application Server (*che ha portato alla creazione di [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per una migliore esperienza di sviluppo*)
           - Utilizzo di Ansible Automation Platform per integrare strumenti di automazione esistenti e semplificare i processi operativi IT
           - Manutenzione di strumenti di build interni basati su Apache Maven, pipeline CI/CD Jenkins e GitHub Actions
-          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la gestione delle attività e la collaborazione del team
+          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la coordinazione delle attività e la collaborazione del team
 
     progetti:
       - name: '[setup-jython](https://github.com/LukeSavefrogs/setup-jython)'
