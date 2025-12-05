@@ -1,0 +1,9 @@
+[project]
+name = "curriculum-vitae"
+version = "0.1.0"
+description = "Curriculum Vitae generated with RenderCV."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "rendercv[full]>=2.3",
+]
