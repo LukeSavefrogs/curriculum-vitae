@@ -4,4 +4,4 @@
 
 1. Install `uv`
 2. Install dependencies: `uv sync`
-3. Generate CV: `uv run rendercv render --watch .\Luca_Salvarani_CV-en.yaml`
+3. Generate CV: `uv run rendercv render --watch ./cv-en.yaml`
