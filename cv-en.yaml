@@ -13,8 +13,7 @@ cv:
   sections:
     biography:
       - I'm a Software Developer and Open Source enthusiast with a passion for automating tedious tasks and optimizing workflows.
-      - I have a passion for learning new technologies, which has led me to explore various programming languages and frameworks over the years,
-        including Python, Java, JavaScript, PHP, Bash, Perl, and more.
+      - I have a passion for learning new technologies, which has led me to explore various programming languages and frameworks over the years.
       - I'm always looking for new challenges and opportunities to grow my skills and contribute to exciting projects.
     experience:
       - company: Team Office S.r.l.
