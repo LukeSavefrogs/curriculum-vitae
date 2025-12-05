@@ -22,7 +22,7 @@ jobs:
       - name: Install uv
         uses: astral-sh/setup-uv@v7
         with:
-          version: '2.3'
+          version: 'v2.3'
           enable-cache: true
 
       - name: Install the project
