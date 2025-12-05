@@ -139,7 +139,7 @@ cv:
         highlights:
           - Formatta l'input in colonne multiple, simile al comando Unix `column`, con supporto ai codici colore ANSI
           - Scritto in Perl, risultando facilmente portabile e utilizzabile in diversi ambienti
-          - Test automatici tramite GitHub Actions per garantire affidabilità e correttezza (utilizzando Shellcheck come framework di unit test)
+          - Test automatici tramite GitHub Actions per garantire affidabilità e correttezza (utilizzando [Shellcheck](https://github.com/shellspec/shellspec) come framework di unit test)
 
     competenze:
       - label: Programmazione
