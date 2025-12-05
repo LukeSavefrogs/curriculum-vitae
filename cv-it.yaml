@@ -12,20 +12,20 @@ cv:
       username: "LukeSavefrogs"
   sections:
     biografia:
-      - Sono uno Sviluppatore Software ed Open Source enthusiast con il chiodo per l'automazione di attività noiose e l'ottimizzazione dei flussi di lavoro.
-      - Ho una passione per l'apprendimento di nuove tecnologie, che mi ha portato a esplorare vari linguaggi di programmazione e framework nel corso degli anni.
-      - Sono sempre alla ricerca di nuove sfide e opportunità per ampliare le mie competenze e contribuire a progetti interessanti.
+      - Sono uno sviluppatore software e Open Source enthusiast, con una forte inclinazione per l'automazione di attività ripetitive e l'ottimizzazione dei flussi di lavoro.
+      - Ho una forte passione per l'apprendimento di nuove tecnologie, che mi ha portato a esplorare diversi linguaggi di programmazione e framework.
+      - Sono costantemente alla ricerca di nuove sfide e opportunità per ampliare le mie competenze e contribuire a progetti di valore.
     esperienze:
       - company: Team Office S.r.l.
         position: Junior Software Developer
         start_date: 2018-01
         end_date: 2018-09
         location: Roma, Italia
-        summary: Sviluppatore web di applicazioni web interne
+        summary: Sviluppatore di applicazioni web interne
         highlights:
-          - Ho utilizzato PHP, JavaScript, HTML/CSS e SQL per sviluppare e mantenere l'applicazione web alla base delle operazioni aziendali
-          - Ho collaborato con un piccolo team per raccogliere requisiti, progettare funzionalità e implementare soluzioni
-          - Ho utilizzato C# per sviluppare un software ETL per importare i listini prezzi Excel dei fornitori nel database aziendale e per sincronizzare gli appuntamenti tra il calendario interno e Outlook
+          - Utilizzo di PHP, JavaScript, HTML/CSS e SQL per sviluppare e mantenere l'applicazione web a supporto delle principali operazioni aziendali
+          - Collaborazione con un piccolo team per la raccolta dei requisiti, la progettazione e l'implementazione delle funzionalità
+          - Utilizzo di C# per sviluppare un software ETL per importare i listini prezzi Excel dei fornitori nel database aziendale e per sincronizzare gli appuntamenti tra il calendario interno e Outlook
           - Attività di base di help desk IT, tra cui risoluzione di problemi hardware e software, supporto agli utenti e manutenzione della rete
       
       - company: Re-Edit S.r.l.
@@ -35,10 +35,10 @@ cv:
         location: Roma, Italia
         summary: Operatore mainframe per il sistema IBM z/TPF di Trenitalia
         highlights:
-          - Ho lavorato su turni di 8 ore (inclusi notti e weekend) per garantire una copertura 24/7
-          - Ho monitorato e gestito il sistema mainframe IBM z/TPF, garantendone il funzionamento regolare e le prestazioni
-          - Ho gestito avvisi di sistema, eseguito attività di manutenzione ordinaria (recoup, backup su nastro) e risposto a incidenti per ridurre al minimo i tempi di inattività
-          - Build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e non produzione
+          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
+          - Monitoraggio e gestione del sistema IBM z/TPF, garantendone il regolare funzionamento e le prestazioni
+          - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a incidenti per minimizzare i tempi di inattività
+          - Attività di build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e non produzione
           - Gestione dei backup di sistema (multipli OS) tramite Tivoli Storage Manager (TSM)
       
       - company: Re-Edit S.r.l.
@@ -48,8 +48,8 @@ cv:
         location: Roma, Italia
         summary: Operatore database per Trenitalia
         highlights:
-          - Ho lavorato su turni di 8 ore (inclusi notti e weekend) per garantire una copertura 24/7
-          - Ho monitorato e gestito database DB2 di produzione e non produzione
+          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
+          - Monitoraggio e gestione dei database DB2 di produzione e non produzione
           - Esecuzione di script DML/DDL
       
       - company: Re-Edit S.r.l.
@@ -59,14 +59,14 @@ cv:
         location: Roma, Italia
         summary: Operatore WebSphere Application Server per Trenitalia
         highlights:
-          - Ho lavorato su turni di 8 ore (inclusi notti e weekend) per garantire una copertura 24/7
-          - Ho monitorato e gestito celle WAS, server LDAP e MQ di produzione e non produzione
-          - Attività di base di amministrazione server Linux relative a WAS, come gestione utenti, monitoraggio e pulizia dello spazio su disco
-          - Ho risposto a ticket e incidenti, fornendo una risoluzione rapida per ridurre al minimo i tempi di inattività
-          - Ho eseguito attività di manutenzione ordinaria, tra cui deployment di applicazioni, riavvii di server e analisi/risoluzione problemi dei log
-          - Ho sviluppato e mantenuto script (Bash, Jython, Perl) per automatizzare attività comuni, migliorando l'efficienza e riducendo gli errori
-          - Ho sviluppato uno strumento interno Javascript per automatizzare il sistema di ticketing, riducendo il lavoro manuale
-          - Ho sviluppato e mantenuto molteplici script Python che automatizzavano test end-to-end di varie applicazioni web Trenitalia, migliorando l'affidabilità e riducendo lo sforzo di testing manuale
+          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
+          - Monitoraggio e gestione di celle WAS, server LDAP e MQ di produzione e non produzione
+          - Attività di base di amministrazione Linux relative a WAS, quali gestione utenti, monitoraggio e gestione dello spazio su disco
+          - Gestione di ticket e incidenti, fornendo soluzioni rapide per ridurre al minimo i tempi di inattività
+          - Esecuzione di attività di manutenzione ordinaria, tra cui deployment applicativi, riavvii dei server e analisi/risoluzione dei problemi dai log
+          - Sviluppo e manutenzione di script (Bash, Jython, Perl) per automatizzare attività comuni, migliorando l'efficienza e riducendo gli errori
+          - Sviluppo di uno strumento interno in JavaScript per automatizzare il sistema di ticketing, riducendo il lavoro manuale
+          - Sviluppo e manutenzione di script Python per automatizzare test end-to-end di applicazioni web, migliorando l'affidabilità e riducendo il carico di testing manuale
       
       - company: Re-Edit S.r.l.
         position: Business Monitoring
@@ -75,8 +75,8 @@ cv:
         location: Roma, Italia
         summary: Business Monitoring per Generali
         highlights:
-          - Ho utilizzato Microfocus Application Performance Management (APM) per monitorare processi aziendali e applicazioni
-          - Ho mantenuto e aggiornato script di monitoraggio per garantire una raccolta e un'analisi accurata dei dati
+          - Utilizzo di Microfocus Application Performance Management (APM) per monitorare processi aziendali e applicazioni
+          - Manutenzione e aggiornamento di script di monitoraggio per garantire una raccolta e un'analisi accurata dei dati
 
       - company: Re-Edit S.r.l.
         position: Sviluppatore automazione
@@ -85,8 +85,8 @@ cv:
         location: Roma, Italia
         summary: Analisi dispositivi di rete CISCO per IPZS
         highlights:
-          - Sviluppo di script Perl per automatizzare il recupero di dati da un gran numero di dispositivi di rete CISCO
-          - Test automatici degli script sviluppati utilizzando GitHub Actions, garantendo affidabilità e correttezza tra le release
+          - Sviluppo di script Perl per automatizzare il recupero dei dati da numerosi dispositivi di rete CISCO
+          - Test automatici degli script tramite GitHub Actions, garantendo affidabilità e correttezza tra le release
 
       - company: Re-Edit S.r.l.
         position: Sviluppatore automazione
@@ -95,12 +95,12 @@ cv:
         location: Roma, Italia
         summary: Sviluppatore Java per Unicredit
         highlights:
-          - Manutenzione, modernizzazione e sviluppo di nuove funzionalità per diverse applicazioni Java 8 legacy interne complesse utilizzate per automatizzare il provisioning dei server, attività di configurazione e polling di healthcheck, tra le altre cose
-          - Sviluppo e manutenzione di molteplici script di automazione (Bash, Python, Perl) per supportare varie attività operative IT
-          - Sviluppo e manutenzione di script Jython (*Jython v2.1*) per automatizzare attività di amministrazione di WebSphere Application Server (*che ha portato alla creazione di [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per una migliore esperienza dello sviluppatore*)
-          - Ho utilizzato Ansible Automation Platform per integrare con strumenti di automazione esistenti e semplificare i processi operativi IT
-          - Manutenzione di strumenti di build interni, basati su Apache Maven e pipeline CI/CD Jenkins, nonché Github Actions
-          - Utilizzo di Git per il controllo di versione e Github Issues/Github Projects per la gestione delle attività e la collaborazione del team
+          - Manutenzione, modernizzazione e sviluppo di nuove funzionalità per complesse applicazioni interne legacy in Java 8, utilizzate per automatizzare il provisioning dei server, attività di configurazione e processi di health-check
+          - Sviluppo e manutenzione di script di automazione (Bash, Python, Perl) per supportare varie attività operative IT
+          - Sviluppo e manutenzione di script Jython (*Jython v2.1*) per automatizzare attività di amministrazione WebSphere Application Server (*che ha portato alla creazione di [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per una migliore esperienza di sviluppo*)
+          - Utilizzo di Ansible Automation Platform per integrare strumenti di automazione esistenti e semplificare i processi operativi IT
+          - Manutenzione di strumenti di build interni basati su Apache Maven, pipeline CI/CD Jenkins e GitHub Actions
+          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la gestione delle attività e la collaborazione del team
 
     progetti:
       - name: '[setup-jython](https://github.com/LukeSavefrogs/setup-jython)'
@@ -110,8 +110,8 @@ cv:
         location:
         summary: GitHub Action per configurare Jython nei workflow GitHub
         highlights:
-          - GitHub Action facile da usare per installare e configurare interpreti Jython nelle pipeline CI/CD
-          - Accetta gli stessi parametri della GitHub Action [`setup-python`](https://github.com/actions/setup-python), rendendola familiare da usare
+          - GitHub Action di facile utilizzo per installare e configurare interpreti Jython nelle pipeline CI/CD
+          - Accetta gli stessi parametri della GitHub Action [`setup-python`](https://github.com/actions/setup-python), rendendola immediata da utilizzare
           - Supporta tutte le versioni di Jython dalla 2.0 alla 2.7.3, su runner Windows, Linux e macOS
 
       - name: '[jython21-backport](https://github.com/LukeSavefrogs/jython21-backport)'
@@ -119,16 +119,17 @@ cv:
         start_date: 2023-05
         end_date: present
         location:
-        summary: Backporting di alcune funzionalità Python più recenti fino a Jython 2.1
+        summary: Backport di funzionalità Python moderne per versioni legacy di Jython (fino alla 2.1)
         highlights:
           - Supporto per interpreti sia CPython che Jython fino alla versione 2.1
-          - Compatibilità retroattiva garantita da test automatici su molteplici versioni di Jython e CPython (su diversi sistemi operativi) utilizzando GitHub Actions (alimentato dall'action [setup-jython](https://github.com/LukeSavefrogs/setup-jython)).
+          - Retrocompatibilità garantita tramite test automatici su molteplici versioni di Jython e CPython (su diversi sistemi operativi) tramite GitHub Actions
           - |
             Le funzionalità implementate includono: 
             - implementazione personalizzata del modulo `json` (introdotto in Python 2.6)
             - classe `pathlib.Path` (introdotta in Python 3.4)
             - tipo `bool` (introdotto in Python 2.3)
             - `sorted` (introdotto in Python 2.4)
+
       - name: '[column-ansi](https://github.com/LukeSavefrogs/column_ansi)'
         date:
         start_date: 2021-12
@@ -136,12 +137,13 @@ cv:
         location:
         summary: Implementazione parziale in Perl del comando shell `column`
         highlights:
-          - Formatta il suo input in colonne multiple, simile al comando Unix `column`, ma con supporto per codici colore ANSI
-          - Scritto in Perl, rendendolo facilmente portabile e utilizzabile in vari ambienti
-          - Test automatici utilizzando GitHub Actions per garantire affidabilità e correttezza (utilizzando [Shellcheck](https://github.com/shellspec/shellspec) come framework di unit test)
+          - Formatta l'input in colonne multiple, simile al comando Unix `column`, con supporto ai codici colore ANSI
+          - Scritto in Perl, risultando facilmente portabile e utilizzabile in diversi ambienti
+          - Test automatici tramite GitHub Actions per garantire affidabilità e correttezza (utilizzando Shellcheck come framework di unit test)
+
     competenze:
       - label: Programmazione
-        details: Lavoro regolarmente con Python, Java e Git; familiare con PHP, Javascript, SQL, HTML/CSS e linguaggi di scripting (Bash, Perl)
+        details: Utilizzo regolare di Python, Java e Git; conoscenza operativa di PHP, JavaScript, SQL, HTML/CSS e linguaggi di scripting (Bash, Perl)
       - label: Lingue
         details: 'Italiano (madrelingua), Inglese (B2-C1)'
     
@@ -165,7 +167,7 @@ cv:
         end_date: 2015
         location: Roma, Italia
       - institution: DS Tech srl
-        area: Corso intensivo sviluppatore Java Fullstack
+        area: Corso intensivo per sviluppatore Java Full-Stack
         start_date: 2017-10
         end_date: 2017-12
         location: Roma, Italia
