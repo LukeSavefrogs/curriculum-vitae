@@ -58,7 +58,7 @@ jobs:
 
           You can download the generated CV files from the [Releases](https://github.com/${{ github.repository }}/releases/tag/${{ steps.version.outputs.CV_VERSION }})
           
-          ## Generated CV Files
+          ## Generated files
           | Language | File Name |
           |----------|-----------|
           $(for file in build/release/*.pdf; do
