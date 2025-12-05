@@ -125,10 +125,10 @@ cv:
           - Retrocompatibilità garantita tramite test automatici su molteplici versioni di Jython e CPython (su diversi sistemi operativi) tramite GitHub Actions
           - |
             Le funzionalità implementate includono: 
-            - implementazione personalizzata del modulo `json` (introdotto in Python 2.6)
+            - modulo `json` (introdotto in Python 2.6)
             - classe `pathlib.Path` (introdotta in Python 3.4)
-            - tipo `bool` (introdotto in Python 2.3)
-            - `sorted` (introdotto in Python 2.4)
+            - classe `bool` (introdotta in Python 2.3)
+            - funzione `sorted` (introdotta in Python 2.4)
 
       - name: '[column-ansi](https://github.com/LukeSavefrogs/column_ansi)'
         date:
