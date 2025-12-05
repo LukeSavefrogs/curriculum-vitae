@@ -1,0 +1,49 @@
+name: Release new CV version
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate-cv:
+    uses: ./.github/workflows/generate-cv.yml
+    
+  release:
+    runs-on: ubuntu-latest
+    needs: [generate-cv]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Download CV artifacts
+        uses: actions/download-artifact@v5
+        with:
+          name: generated-cv
+          path: build/lang/
+
+      - name: Rename CV files for release
+        run: |
+          mkdir -p build/release/
+          for file in build/lang/**/*.pdf; do
+            filename="$(basename "$file")"
+            lang="$(basename "$(dirname "$file")")"
+            new_filename="${filename%.pdf}-${lang}.pdf"
+
+            cp "$file" "build/release/${new_filename}"
+          done
+
+      - name: Generate version tag
+        id: version
+        run: |
+          short_sha=$(head -c 7 <<< "${{ github.sha }}")
+          echo "CV_VERSION=cv-v$(date +'%Y.%m.%d')-${short_sha}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.CV_VERSION }}
+          name: CV Version v${{ steps.version.outputs.CV_VERSION }}
+          body: "Automated release of CV version v${{ steps.version.outputs.CV_VERSION }}"
+          make_latest: true
+          fail_on_unmatched_files: true
+          files: |
+            build/release/*.pdf
