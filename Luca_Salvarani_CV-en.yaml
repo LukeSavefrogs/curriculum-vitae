@@ -11,24 +11,6 @@ cv:
     - network: "GitHub"
       username: "LukeSavefrogs"
   sections:
-    education:
-      - institution: ITT "Enrico Fermi"
-        area: Information Technology
-        grade: 70/100
-        start_date: 2015
-        end_date: 2017
-        location: Frascati, Italy
-      - institution: ITIS "Galileo Galilei"
-        area: Information Technology
-        start_date: 2012
-        end_date: 2015
-        location: Rome, Italy
-      - institution: DS Tech srl
-        area: Java Fullstack developer crash course
-        start_date: 2017-10
-        end_date: 2017-12
-        location: Rome, Italy
-        summary: Intensive course on Java programming, mobile development with Ionic and front-end technologies (HTML, CSS, TypeScript, AngularJS)
     experience:
       - company: Team Office S.r.l.
         position: Junior Software Developer
@@ -149,6 +131,32 @@ cv:
         details: Working regularly with Python, Java, and Git; familiar with PHP, Javascript, SQL, HTML/CSS and scripting languages (Bash, Perl)
       - label: Languages
         details: 'English, Italian (native)'
+    
+    certifications:
+      - name: Cisco CCNA Routing & Switching 1
+        date: 2016-01
+      - name: Cambridge B1 Preliminary (PET)
+        date: 2015-05
+        
+    education:
+      - institution: ITT "Enrico Fermi"
+        area: Information Technology
+        grade: 70/100
+        start_date: 2015
+        end_date: 2017
+        location: Frascati, Italy
+      - institution: ITIS "Galileo Galilei"
+        area: Information Technology
+        start_date: 2012
+        end_date: 2015
+        location: Rome, Italy
+      - institution: DS Tech srl
+        area: Java Fullstack developer crash course
+        start_date: 2017-10
+        end_date: 2017-12
+        location: Rome, Italy
+        summary: Intensive course on Java programming, mobile development with Ionic and front-end technologies (HTML, CSS, TypeScript, AngularJS)
+
   sort_entries: none
 design:
   theme: engineeringclassic
