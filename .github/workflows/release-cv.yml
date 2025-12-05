@@ -37,8 +37,7 @@ jobs:
       - name: Generate version tag
         id: version
         run: |
-          short_sha=$(head -c 7 <<< "${{ github.sha }}")
-          echo "CV_VERSION=cv-v$(date +'%Y.%m.%d')-${short_sha}" >> $GITHUB_OUTPUT
+          echo "CV_VERSION=cv-$(date +'%Y.%m.%d-%H.%M.%S')" >> $GITHUB_OUTPUT
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
