@@ -11,6 +11,11 @@ cv:
     - network: "GitHub"
       username: "LukeSavefrogs"
   sections:
+    biography:
+      - I'm a Software Developer and Open Source enthusiast with a passion for automating tedious tasks and optimizing workflows.
+      - I have a passion for learning new technologies, which has led me to explore various programming languages and frameworks over the years,
+        including Python, Java, JavaScript, PHP, Bash, Perl, and more.
+      - I'm always looking for new challenges and opportunities to grow my skills and contribute to exciting projects.
     experience:
       - company: Team Office S.r.l.
         position: Junior Software Developer
@@ -76,6 +81,16 @@ cv:
 
       - company: Re-Edit S.r.l.
         position: Automation developer
+        start_date: 2024-04
+        end_date: 2024-09
+        location: Rome, Italy
+        summary: CISCO Network device analysis for IPZS
+        highlights:
+          - Development of Perl scripts to automate data retrieval from a large number of CISCO network devices
+          - Automatic testing of the developed scripts using GitHub Actions, ensuring reliability and correctness between releases 
+
+      - company: Re-Edit S.r.l.
+        position: Automation developer
         start_date: 2022-12
         end_date: present
         location: Rome, Italy
@@ -130,7 +145,7 @@ cv:
       - label: Programming
         details: Working regularly with Python, Java, and Git; familiar with PHP, Javascript, SQL, HTML/CSS and scripting languages (Bash, Perl)
       - label: Languages
-        details: 'English, Italian (native)'
+        details: 'Italian (native), English (B2-C1)'
     
     certifications:
       - name: Cisco CCNA Routing & Switching 1
@@ -138,6 +153,7 @@ cv:
       - name: Cambridge B1 Preliminary (PET)
         date: 2015-05
         
+
     education:
       - institution: ITT "Enrico Fermi"
         area: Information Technology
