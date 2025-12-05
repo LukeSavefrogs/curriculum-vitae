@@ -35,3 +35,10 @@ jobs:
 
               uv run rendercv render "$file" --output-folder-name "build/${lang}/"
             done
+
+      - name: Upload CV artifacts
+        uses: actions/upload-artifact@v5
+        with:
+          name: generated-cv
+          path: build/**/*.pdf
+          if-no-files-found: error
