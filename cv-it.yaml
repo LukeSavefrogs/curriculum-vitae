@@ -79,7 +79,7 @@ cv:
           - Manutenzione e aggiornamento di script di monitoraggio per garantire una raccolta e un'analisi accurata dei dati
 
       - company: Re-Edit S.r.l.
-        position: Sviluppatore automazione
+        position: Automation developer
         start_date: 2024-04
         end_date: 2024-09
         location: Roma, Italia
@@ -89,7 +89,7 @@ cv:
           - Test automatici degli script tramite GitHub Actions, garantendo affidabilità e correttezza tra le release
 
       - company: Re-Edit S.r.l.
-        position: Sviluppatore automazione
+        position: Automation developer
         start_date: 2022-12
         end_date: present
         location: Roma, Italia
