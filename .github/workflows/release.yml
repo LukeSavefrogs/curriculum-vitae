@@ -3,6 +3,9 @@ name: Release new CV version
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   generate-cv:
     uses: ./.github/workflows/generate-cv.yml
