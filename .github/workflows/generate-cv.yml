@@ -31,7 +31,7 @@ jobs:
       - name: Generate CV
         run: |
             for file in cv-*.yaml; do
-              locale="$(grep -Po '(?<=cv-)[-_a-z]{2}(?=\.yaml)' <<< "$file")"
+              lang="$(grep -Po '(?<=cv-)[-_a-z]{2}(?=\.yaml)' <<< "$file")"
 
-              uv run rendercv render "$file" --output-folder-name "build/${locale}/"
+              uv run rendercv render "$file" --output-folder-name "build/${lang}/"
             done
