@@ -39,7 +39,7 @@ cv:
           - Monitored and managed the IBM z/TPF mainframe system, ensuring its smooth operation and performance
           - Handled system alerts, performed routine maintenance tasks (recoup, backup on tape), and responded to incidents to minimize downtime
           - Build, deploy and rollback of the seat reservation application on production and no-production environments
-          - Handling of system backups (multiple OS) via Tivoli Storage Manager (TSM)
+          - Handling of system backups (on multiple operative systems) via Tivoli Storage Manager (TSM)
       
       - company: Re-Edit S.r.l.
         position: IBM DB2 operator

@@ -39,7 +39,7 @@ cv:
           - Monitoraggio e gestione del sistema IBM z/TPF, garantendone il regolare funzionamento e le prestazioni
           - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a incident per minimizzare i tempi di inattività
           - Attività di build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e non produzione
-          - Gestione dei backup di sistema (multipli OS) tramite Tivoli Storage Manager (TSM)
+          - Gestione dei backup di sistema (su più sistemi operativi) tramite Tivoli Storage Manager (TSM)
       
       - company: Re-Edit S.r.l.
         position: Operatore IBM DB2
