@@ -1,7 +1,7 @@
 #!/bin/env bash
 # **********************************************************************************
 #                                                                                  *
-# Description :                                                                    *
+# Description : Generate the CVs for each `cv-*.yaml` file.                        *
 #                                                                                  *
 # **********************************************************************************
 
@@ -24,23 +24,24 @@ main () {
     fi
 
     for file in cv-*.yaml; do
-        lang="$(grep -Po '(?<=cv-)[-_a-z]{2}(?=\.yaml)' <<< "$file")"
+        lang="$(grep -Po '(?<=cv-)([-_a-z]{2})(?=\.yaml)' <<< "$file")"
 
-        log_info "Rendering CV for language: ${lang} from file: ${file}"
+        log_debug "Rendering CV for language '${lang}' from file '${file}'"
         uv run rendercv render "$file" --output-folder-name "${output_dir}/${lang}/"
-        log_info "Successfully rendered CV for language: ${lang}"
+        log_info "Successfully rendered CV for language '${lang}'"
     done
 
     log_info "Build process completed successfully"
     return 0;
 }
 
+# Logging functions
 _log() {
     local level="${1?Missing mandatory log level}"
     local msg="${2?Missing mandatory log message}"
-    echo "[$(date +'%Y-%m-%dT%H:%M:%S')] ${level^^} ${msg}"
+    echo "[$(date +'%Y-%m-%dT%H:%M:%S')] ${level^^} - ${msg}"
 }
-log_info() { _log "DEBUG" "$@"; }
+log_debug() { _log "DEBUG" "$@"; }
 log_info() { _log "INFO" "$@"; }
 log_warn() { _log "WARN" "$@"; }
 log_error() { _log "ERROR" "$@"; }
