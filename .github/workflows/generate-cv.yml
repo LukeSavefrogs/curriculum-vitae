@@ -28,12 +28,8 @@ jobs:
 
       - name: Generate CV
         run: |
-            for file in cv-*.yaml; do
-              lang="$(grep -Po '(?<=cv-)[-_a-z]{2}(?=\.yaml)' <<< "$file")"
-
-              uv run rendercv render "$file" --output-folder-name "build/${lang}/"
-            done
-
+          ./scripts/build_cv.sh
+      
       - name: Upload CV artifacts
         uses: actions/upload-artifact@v5
         with:
