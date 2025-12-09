@@ -314,8 +314,3 @@ locale:
     - Ottobre
     - Novembre
     - Dicembre
-rendercv_settings:
-  render_command: 
-    output_folder_name: 'build/'
-  bold_keywords: []
-  sort_entries: reverse-chronological

@@ -12,22 +12,27 @@
 set -o pipefail
 set -o errtrace      # Same as `set -E`
 set -o nounset       # Same as `set -u`
-# set -o errexit     # Same as `set -e`, useful ONLY for short and simple scripts
+set -o errexit       # Same as `set -e`
+
+declare -r PROJECT_ROOT="$(realpath -e "$(dirname "$(realpath "${BASH_SOURCE[0]}")")/..")"
 
 main () {
     local output_dir="build"
-    log_info "Starting the build process"
 
     if ! command -v uv &> /dev/null; then
         log_error "uv command could not be found. Please install [uv](https://docs.astral.sh/uv/) to proceed."
         return 1
     fi
 
+    log_info "Starting the build process (project.root='${PROJECT_ROOT}')"
+
     for file in cv-*.yaml; do
         lang="$(grep -Po '(?<=cv-)([-_a-z]{2})(?=\.yaml)' <<< "$file")"
 
         log_debug "Rendering CV for language '${lang}' from file '${file}'"
-        uv run rendercv render "$file" --output-folder-name "${output_dir}/${lang}/"
+        uv run rendercv render "$file" \
+            --output-folder-name "${output_dir}/${lang}/" \
+            --rendercv-settings "${PROJECT_ROOT}/config/rendercv.config.yaml"
         log_info "Successfully rendered CV for language '${lang}'"
     done
 
