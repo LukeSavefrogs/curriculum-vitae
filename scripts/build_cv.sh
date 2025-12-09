@@ -32,6 +32,7 @@ main () {
         log_debug "Rendering CV for language '${lang}' from file '${file}'"
         uv run rendercv render "$file" \
             --output-folder-name "${output_dir}/${lang}/" \
+            --design "${PROJECT_ROOT}/config/design.config.yaml" \
             --rendercv-settings "${PROJECT_ROOT}/config/rendercv.config.yaml"
         log_info "Successfully rendered CV for language '${lang}'"
     done
