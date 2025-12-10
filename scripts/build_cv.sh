@@ -22,7 +22,7 @@ declare -r COLS_PER_ROW_RATIO=2  # Number of columns per row to decide tmux layo
 
 main () {
     local output_dir="build"
-    local is_tmux_available=false tmux_disabled=false
+    local is_tmux_available=false force_tmux_disabled=false
     local -a command_prefix=()
 
     # From this excellent StackOverflow answer: https://stackoverflow.com/a/14203146/8965861
@@ -36,8 +36,7 @@ main () {
                 shift;
             ;;
             --no-tmux)
-                tmux_disabled=true;
-                is_tmux_available=false;
+                force_tmux_disabled=true;
                 shift;
             ;;
             -\? | -h |--help)
@@ -74,13 +73,13 @@ main () {
         return 1
     fi
 
-    if command -v tmux &> /dev/null && [[ -t 1 ]] && [[ $tmux_disabled == false ]]; then
+    if command -v tmux &> /dev/null && [[ -t 1 ]]; then
         is_tmux_available=true
     elif [[ $WATCH_MODE == true ]]; then
         log_warn "tmux can not be used. Watch mode will be run one file at a time."
     fi
 
-    if $is_tmux_available; then
+    if $is_tmux_available && [[ $force_tmux_disabled == false ]]; then
         tmux_create_session "$TMUX_SESSION_NAME"
         command_prefix=(tmux_send_command "$TMUX_SESSION_NAME")
     fi
@@ -99,7 +98,7 @@ main () {
         log_info "Successfully rendered CV for language '${lang}'"
     done
 
-    if $is_tmux_available; then
+    if $is_tmux_available && [[ $force_tmux_disabled == false ]]; then
         tmux_attach_session "$TMUX_SESSION_NAME"
     fi
 
