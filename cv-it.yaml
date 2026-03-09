@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.3/schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.7/schema.json
 cv:
   name: "Luca Salvarani"
   location: "Roma, Italia"
@@ -172,43 +172,5 @@ cv:
         end_date: 2017-12
         location: Roma, Italia
         summary: Corso intensivo sulla programmazione Java, sviluppo mobile con Ionic e tecnologie front-end (HTML, CSS, TypeScript, AngularJS)
-
-  sort_entries: none
 locale:
-  language: it
-  phone_number_format: national
-  page_numbering_template: NAME - Pagina PAGE_NUMBER di TOTAL_PAGES
-  last_updated_date_template: Ultimo aggiornamento TODAY
-  date_template: MONTH_ABBREVIATION YEAR
-  month: mese
-  months: mesi
-  year: anno
-  years: anni
-  present: presente
-  to: –
-  abbreviations_for_months:
-    - Gen
-    - Feb
-    - Mar
-    - Apr
-    - Mag
-    - Giu
-    - Lug
-    - Ago
-    - Set
-    - Ott
-    - Nov
-    - Dic
-  full_names_of_months:
-    - Gennaio
-    - Febbraio
-    - Marzo
-    - Aprile
-    - Maggio
-    - Giugno
-    - Luglio
-    - Agosto
-    - Settembre
-    - Ottobre
-    - Novembre
-    - Dicembre
+  language: italian

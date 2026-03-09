@@ -1,5 +1,5 @@
-rendercv_settings:
-  render_command: 
-    output_folder_name: 'build/'
+# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.7/schema.json
+settings:
   bold_keywords: []
-  sort_entries: reverse-chronological
+  render_command:
+    output_folder: build/
