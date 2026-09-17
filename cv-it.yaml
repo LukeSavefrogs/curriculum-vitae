@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/rendercv/rendercv/refs/tags/v2.7/schema.json
 cv:
   name: "Luca Salvarani"
   location: "Roma, Italia"
@@ -27,7 +26,7 @@ cv:
           - Collaborazione con un piccolo team per la raccolta dei requisiti, la progettazione e l'implementazione delle funzionalità
           - Utilizzo di C# per sviluppare un software ETL per importare i listini prezzi Excel dei fornitori nel database aziendale e per sincronizzare gli appuntamenti tra il calendario interno e Outlook
           - Attività di base di help desk IT, tra cui risoluzione di problemi hardware e software, supporto agli utenti e manutenzione della rete
-      
+
       - company: Re-Edit S.r.l.
         position: Operatore mainframe IBM z/TPF
         start_date: 2018-11
@@ -40,7 +39,7 @@ cv:
           - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a incident per minimizzare i tempi di inattività
           - Attività di build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e non produzione
           - Gestione dei backup di sistema (su più sistemi operativi) tramite Tivoli Storage Manager (TSM)
-      
+
       - company: Re-Edit S.r.l.
         position: Operatore IBM DB2
         start_date: 2020-01
@@ -51,7 +50,7 @@ cv:
           - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
           - Monitoraggio e gestione dei database DB2 di produzione e non produzione
           - Esecuzione di script DML/DDL
-      
+
       - company: Re-Edit S.r.l.
         position: Operatore IBM WebSphere Application Server
         start_date: 2021-02
@@ -67,7 +66,7 @@ cv:
           - Sviluppo e manutenzione di script (Bash, Jython, Perl) per automatizzare attività comuni, migliorando l'efficienza e riducendo gli errori
           - Sviluppo di uno strumento interno in JavaScript per automatizzare il sistema di ticketing, riducendo il lavoro manuale
           - Sviluppo e manutenzione di script Python per automatizzare test end-to-end di applicazioni web, migliorando l'affidabilità e riducendo il carico di testing manuale
-      
+
       - company: Re-Edit S.r.l.
         position: Business Monitoring
         start_date: 2022-06
@@ -103,7 +102,7 @@ cv:
           - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la coordinazione delle attività e la collaborazione del team
 
     progetti:
-      - name: '[setup-jython](https://github.com/LukeSavefrogs/setup-jython)'
+      - name: "[setup-jython](https://github.com/LukeSavefrogs/setup-jython)"
         date:
         start_date: 2023-05
         end_date: present
@@ -114,7 +113,7 @@ cv:
           - Accetta gli stessi parametri della GitHub Action [`setup-python`](https://github.com/actions/setup-python), rendendola immediata da utilizzare
           - Supporta tutte le versioni di Jython dalla 2.0 alla 2.7.3, su runner Windows, Linux e macOS
 
-      - name: '[jython21-backport](https://github.com/LukeSavefrogs/jython21-backport)'
+      - name: "[jython21-backport](https://github.com/LukeSavefrogs/jython21-backport)"
         date:
         start_date: 2023-05
         end_date: present
@@ -130,7 +129,7 @@ cv:
             - classe `bool` (introdotta in Python 2.3)
             - funzione `sorted` (introdotta in Python 2.4)
 
-      - name: '[column-ansi](https://github.com/LukeSavefrogs/column_ansi)'
+      - name: "[column-ansi](https://github.com/LukeSavefrogs/column_ansi)"
         date:
         start_date: 2021-12
         end_date: present
@@ -145,14 +144,13 @@ cv:
       - label: Programmazione
         details: Utilizzo regolare di Python, Java e Git; conoscenza operativa di PHP, JavaScript, SQL, HTML/CSS e linguaggi di scripting (Bash, Perl)
       - label: Lingue
-        details: 'Italiano (madrelingua), Inglese (B2-C1)'
-    
+        details: "Italiano (madrelingua), Inglese (B2-C1)"
+
     certificazioni:
       - name: Cisco CCNA Routing & Switching 1
         date: 2016-01
       - name: Cambridge B1 Preliminary (PET)
         date: 2015-05
-        
 
     istruzione:
       - institution: ITT "Enrico Fermi"
