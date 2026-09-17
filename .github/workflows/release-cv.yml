@@ -15,7 +15,7 @@ jobs:
     needs: [generate-cv]
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Download CV artifacts
         uses: actions/download-artifact@v5
