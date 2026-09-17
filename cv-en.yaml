@@ -11,8 +11,10 @@ cv:
       username: "LukeSavefrogs"
   sections:
     biography:
-      - I'm a Software Developer and Open Source enthusiast with a passion for automating tedious tasks and optimizing workflows.
-      - I have a passion for learning new technologies, which has led me to explore various programming languages and frameworks over the years.
+      - I'm a Software Developer and Open Source enthusiast with a passion for automating tedious tasks and optimizing
+        workflows.
+      - I have a passion for learning new technologies, which has led me to explore various programming languages and
+        frameworks over the years.
       - I'm always looking for new challenges and opportunities to grow my skills and contribute to exciting projects.
     experience:
       - company: Team Office S.r.l.
@@ -22,10 +24,13 @@ cv:
         location: Rome, Italy
         summary: Web developer for internal web applications
         highlights:
-          - Used PHP, JavaScript, HTML/CSS, and SQL to develop and maintain the web application powering the company operations
+          - Used PHP, JavaScript, HTML/CSS, and SQL to develop and maintain the web application powering the company
+            operations
           - Collaborated with a small team to gather requirements, design features, and implement solutions
-          - Used C# to develop an ETL software to import suppliers Excel pricing lists into the company database and to syncronize appointments between the internal calendar and Outlook
-          - Basic IT help desk tasks, including hardware and software troubleshooting, user support, and network maintenance
+          - Used C# to develop an ETL software to import suppliers Excel pricing lists into the company database and to
+            syncronize appointments between the internal calendar and Outlook
+          - Basic IT help desk tasks, including hardware and software troubleshooting, user support, and network
+            maintenance
 
       - company: Re-Edit S.r.l.
         position: IBM z/TPF Mainframe operator
@@ -36,7 +41,8 @@ cv:
         highlights:
           - Worked on 8-hour shifts (including nights and weekends) to ensure 24/7 coverage
           - Monitored and managed the IBM z/TPF mainframe system, ensuring its smooth operation and performance
-          - Handled system alerts, performed routine maintenance tasks (recoup, backup on tape), and responded to incidents to minimize downtime
+          - Handled system alerts, performed routine maintenance tasks (recoup, backup on tape), and responded to
+            incidents to minimize downtime
           - Build, deploy and rollback of the seat reservation application on production and no-production environments
           - Handling of system backups (on multiple operative systems) via Tivoli Storage Manager (TSM)
 
@@ -60,12 +66,16 @@ cv:
         highlights:
           - Worked on 8-hour shifts (including nights and weekends) to ensure 24/7 coverage
           - Monitored and managed production and non-production WAS cells, LDAP and MQ servers
-          - Basic WAS-related Linux server administration tasks, such as user management, disk space monitoring and cleanup
+          - Basic WAS-related Linux server administration tasks, such as user management, disk space monitoring and
+            cleanup
           - Responded to tickets and incidents, providing quick resolution to minimize downtime
-          - Performed routine maintenance tasks, including application deployments, server restarts, and log analysis/troubleshooting
-          - Developed and maintained scripts (Bash, Jython, Perl) to automate common tasks, improving efficiency and reducing errors
+          - Performed routine maintenance tasks, including application deployments, server restarts, and log
+            analysis/troubleshooting
+          - Developed and maintained scripts (Bash, Jython, Perl) to automate common tasks, improving efficiency and
+            reducing errors
           - Developed an internal Javascript tool to automate the ticketing system, reducing manual work
-          - Developed and maintained multiple Python scripts that automated end-to-end tests of various Trenitalia web applications, improving reliability and reducing manual testing effort
+          - Developed and maintained multiple Python scripts that automated end-to-end tests of various Trenitalia web
+            applications, improving reliability and reducing manual testing effort
 
       - company: Re-Edit S.r.l.
         position: Business Monitoring
@@ -85,7 +95,8 @@ cv:
         summary: CISCO Network device analysis for IPZS
         highlights:
           - Development of Perl scripts to automate data retrieval from a large number of CISCO network devices
-          - Automatic testing of the developed scripts using GitHub Actions, ensuring reliability and correctness between releases
+          - Automatic testing of the developed scripts using GitHub Actions, ensuring reliability and correctness
+            between releases
 
       - company: Re-Edit S.r.l.
         position: Automation developer
@@ -94,13 +105,20 @@ cv:
         location: Rome, Italy
         summary: Java developer for Unicredit
         highlights:
-          - Maintenance, modernization and development of new features for several complex legacy Java 8 internal applications used to automate server provisioning, configuration tasks and healthcheck polling, among other things
-          - Development and maintenance of multiple automation scripts (Bash, Python, Perl) to support various IT operations tasks
-          - Development and maintenance of Jython scripts (*Jython v2.1*) to automate WebSphere Application Server administration tasks (*which led to the creation
-            of [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) for a better developer experience*)
-          - Used Ansible Automation Platform to integrate with existing automation tools and streamline IT operations processes
-          - Maintenance of internal build tools, based on Apache Maven and Jenkins CI/CD pipelines, as well as Github Actions
-          - Usage of Git for version control and Github Issues/Github Projects for task management and team collaboration
+          - Maintenance, modernization and development of new features for several complex legacy Java 8 internal
+            applications used to automate server provisioning, configuration tasks and healthcheck polling, among other
+            things
+          - Development and maintenance of multiple automation scripts (Bash, Python, Perl) to support various IT
+            operations tasks
+          - Development and maintenance of Jython scripts (*Jython v2.1*) to automate WebSphere Application Server
+            administration tasks (*which led to the creation of
+            [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) for a better developer experience*)
+          - Used Ansible Automation Platform to integrate with existing automation tools and streamline IT operations
+            processes
+          - Maintenance of internal build tools, based on Apache Maven and Jenkins CI/CD pipelines, as well as Github
+            Actions
+          - Usage of Git for version control and Github Issues/Github Projects for task management and team
+            collaboration
 
     projects:
       - name: "[setup-jython](https://github.com/LukeSavefrogs/setup-jython)"
@@ -111,7 +129,8 @@ cv:
         summary: GitHub Action for setting up Jython in GitHub workflows
         highlights:
           - Easy-to-use GitHub Action to install and configure Jython interpreters in CI/CD pipelines
-          - Accepts same parameters as the [`setup-python`](https://github.com/actions/setup-python) GitHub Action, making it familiar to use
+          - Accepts same parameters as the [`setup-python`](https://github.com/actions/setup-python) GitHub Action,
+            making it familiar to use
           - Supports all Jython versions from 2.0 to 2.7.3, on Windows, Linux, and macOS runners
 
       - name: "[jython21-backport](https://github.com/LukeSavefrogs/jython21-backport)"
@@ -122,7 +141,9 @@ cv:
         summary: Backporting of some newer Python features down to Jython 2.1
         highlights:
           - Support for both CPython and Jython interpreters down to version 2.1
-          - Backwards compatibility ensured by automatic testing against multiple Jython and CPython versions (on different operative systems) using GitHub Actions (powered by the [setup-jython](https://github.com/LukeSavefrogs/setup-jython) action).
+          - Backwards compatibility ensured by automatic testing against multiple Jython and CPython versions (on
+            different operative systems) using GitHub Actions (powered by the
+            [setup-jython](https://github.com/LukeSavefrogs/setup-jython) action).
           - |
             Implemented features include: 
             - `json` module (introduced in Python 2.6)
@@ -136,12 +157,16 @@ cv:
         location:
         summary: Partial Perl implementation of the `column` shell command
         highlights:
-          - Formats its input into multiple columns, similar to the Unix `column` command, but with support for ANSI color codes
+          - Formats its input into multiple columns, similar to the Unix `column` command, but with support for ANSI
+            color codes
           - Written in Perl, making it easily portable and usable in various environments
-          - Automatic tests using GitHub Actions to ensure reliability and correctness (using [Shellcheck](https://github.com/shellspec/shellspec) as unit test framework)
+          - Automatic tests using GitHub Actions to ensure reliability and correctness (using
+            [Shellcheck](https://github.com/shellspec/shellspec) as unit test framework)
     skills:
       - label: Programming
-        details: Working regularly with Python, Java, and Git; familiar with PHP, Javascript, SQL, HTML/CSS and scripting languages (Bash, Perl)
+        details:
+          Working regularly with Python, Java, and Git; familiar with PHP, Javascript, SQL, HTML/CSS and scripting
+          languages (Bash, Perl)
       - label: Languages
         details: "Italian (native), English (B2-C1)"
 
@@ -168,6 +193,8 @@ cv:
         start_date: 2017-10
         end_date: 2017-12
         location: Rome, Italy
-        summary: Intensive course on Java programming, mobile development with Ionic and front-end technologies (HTML, CSS, TypeScript, AngularJS)
+        summary:
+          Intensive course on Java programming, mobile development with Ionic and front-end technologies (HTML, CSS,
+          TypeScript, AngularJS)
 locale:
   language: english

@@ -11,9 +11,12 @@ cv:
       username: "LukeSavefrogs"
   sections:
     biografia:
-      - Sono uno sviluppatore software e Open Source enthusiast, con una forte inclinazione per l'automazione di attività ripetitive e l'ottimizzazione dei flussi di lavoro.
-      - Ho una forte passione per l'apprendimento di nuove tecnologie, che mi ha portato a esplorare diversi linguaggi di programmazione e framework.
-      - Sono costantemente alla ricerca di nuove sfide e opportunità per ampliare le mie competenze e contribuire a progetti di valore.
+      - Sono uno sviluppatore software e Open Source enthusiast, con una forte inclinazione per l'automazione di
+        attività ripetitive e l'ottimizzazione dei flussi di lavoro.
+      - Ho una forte passione per l'apprendimento di nuove tecnologie, che mi ha portato a esplorare diversi linguaggi
+        di programmazione e framework.
+      - Sono costantemente alla ricerca di nuove sfide e opportunità per ampliare le mie competenze e contribuire a
+        progetti di valore.
     esperienze:
       - company: Team Office S.r.l.
         position: Junior Software Developer
@@ -22,10 +25,14 @@ cv:
         location: Roma, Italia
         summary: Sviluppatore di applicazioni web interne
         highlights:
-          - Utilizzo di PHP, JavaScript, HTML/CSS e SQL per sviluppare e mantenere l'applicazione web a supporto delle principali operazioni aziendali
-          - Collaborazione con un piccolo team per la raccolta dei requisiti, la progettazione e l'implementazione delle funzionalità
-          - Utilizzo di C# per sviluppare un software ETL per importare i listini prezzi Excel dei fornitori nel database aziendale e per sincronizzare gli appuntamenti tra il calendario interno e Outlook
-          - Attività di base di help desk IT, tra cui risoluzione di problemi hardware e software, supporto agli utenti e manutenzione della rete
+          - Utilizzo di PHP, JavaScript, HTML/CSS e SQL per sviluppare e mantenere l'applicazione web a supporto delle
+            principali operazioni aziendali
+          - Collaborazione con un piccolo team per la raccolta dei requisiti, la progettazione e l'implementazione delle
+            funzionalità
+          - Utilizzo di C# per sviluppare un software ETL per importare i listini prezzi Excel dei fornitori nel
+            database aziendale e per sincronizzare gli appuntamenti tra il calendario interno e Outlook
+          - Attività di base di help desk IT, tra cui risoluzione di problemi hardware e software, supporto agli utenti
+            e manutenzione della rete
 
       - company: Re-Edit S.r.l.
         position: Operatore mainframe IBM z/TPF
@@ -36,8 +43,10 @@ cv:
         highlights:
           - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
           - Monitoraggio e gestione del sistema IBM z/TPF, garantendone il regolare funzionamento e le prestazioni
-          - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a incident per minimizzare i tempi di inattività
-          - Attività di build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e non produzione
+          - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a
+            incident per minimizzare i tempi di inattività
+          - Attività di build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e
+            non produzione
           - Gestione dei backup di sistema (su più sistemi operativi) tramite Tivoli Storage Manager (TSM)
 
       - company: Re-Edit S.r.l.
@@ -60,12 +69,17 @@ cv:
         highlights:
           - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
           - Monitoraggio e gestione di celle WAS, server LDAP e MQ di produzione e non produzione
-          - Attività di base di amministrazione Linux relative a WAS, quali gestione utenti, monitoraggio e gestione dello spazio su disco
+          - Attività di base di amministrazione Linux relative a WAS, quali gestione utenti, monitoraggio e gestione
+            dello spazio su disco
           - Gestione di ticket e incident, fornendo soluzioni rapide per ridurre al minimo i tempi di inattività
-          - Esecuzione di attività di manutenzione ordinaria, tra cui deployment applicativi, riavvii dei server e analisi/risoluzione dei problemi dai log
-          - Sviluppo e manutenzione di script (Bash, Jython, Perl) per automatizzare attività comuni, migliorando l'efficienza e riducendo gli errori
-          - Sviluppo di uno strumento interno in JavaScript per automatizzare il sistema di ticketing, riducendo il lavoro manuale
-          - Sviluppo e manutenzione di script Python per automatizzare test end-to-end di applicazioni web, migliorando l'affidabilità e riducendo il carico di testing manuale
+          - Esecuzione di attività di manutenzione ordinaria, tra cui deployment applicativi, riavvii dei server e
+            analisi/risoluzione dei problemi dai log
+          - Sviluppo e manutenzione di script (Bash, Jython, Perl) per automatizzare attività comuni, migliorando
+            l'efficienza e riducendo gli errori
+          - Sviluppo di uno strumento interno in JavaScript per automatizzare il sistema di ticketing, riducendo il
+            lavoro manuale
+          - Sviluppo e manutenzione di script Python per automatizzare test end-to-end di applicazioni web, migliorando
+            l'affidabilità e riducendo il carico di testing manuale
 
       - company: Re-Edit S.r.l.
         position: Business Monitoring
@@ -74,8 +88,10 @@ cv:
         location: Roma, Italia
         summary: Business Monitoring per Generali
         highlights:
-          - Utilizzo di Microfocus Application Performance Management (APM) per monitorare processi aziendali e applicazioni
-          - Manutenzione e aggiornamento di script di monitoraggio per garantire una raccolta e un'analisi accurata dei dati
+          - Utilizzo di Microfocus Application Performance Management (APM) per monitorare processi aziendali e
+            applicazioni
+          - Manutenzione e aggiornamento di script di monitoraggio per garantire una raccolta e un'analisi accurata dei
+            dati
 
       - company: Re-Edit S.r.l.
         position: Automation developer
@@ -94,12 +110,20 @@ cv:
         location: Roma, Italia
         summary: Sviluppatore Java per Unicredit
         highlights:
-          - Manutenzione, modernizzazione e sviluppo di nuove funzionalità per complesse applicazioni interne legacy in Java 8, utilizzate per automatizzare il provisioning dei server, attività di configurazione e processi di health-check
-          - Sviluppo e manutenzione di script di automazione (Bash, Python, Perl) per supportare varie attività operative IT
-          - Sviluppo e manutenzione di script Jython (*Jython v2.1*) per automatizzare attività di amministrazione WebSphere Application Server (*che ha portato alla creazione di [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per una migliore esperienza di sviluppo*)
-          - Utilizzo di Ansible Automation Platform per integrare strumenti di automazione esistenti e semplificare i processi operativi IT
+          - Manutenzione, modernizzazione e sviluppo di nuove funzionalità per complesse applicazioni interne legacy in
+            Java 8, utilizzate per automatizzare il provisioning dei server, attività di configurazione e processi di
+            health-check
+          - Sviluppo e manutenzione di script di automazione (Bash, Python, Perl) per supportare varie attività
+            operative IT
+          - Sviluppo e manutenzione di script Jython (*Jython v2.1*) per automatizzare attività di amministrazione
+            WebSphere Application Server (*che ha portato alla creazione di
+            [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per una migliore esperienza di
+            sviluppo*)
+          - Utilizzo di Ansible Automation Platform per integrare strumenti di automazione esistenti e semplificare i
+            processi operativi IT
           - Manutenzione di strumenti di build interni basati su Apache Maven, pipeline CI/CD Jenkins e GitHub Actions
-          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la coordinazione delle attività e la collaborazione del team
+          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la coordinazione delle attività e
+            la collaborazione del team
 
     progetti:
       - name: "[setup-jython](https://github.com/LukeSavefrogs/setup-jython)"
@@ -110,7 +134,8 @@ cv:
         summary: GitHub Action per configurare Jython nei workflow GitHub
         highlights:
           - GitHub Action di facile utilizzo per installare e configurare interpreti Jython nelle pipeline CI/CD
-          - Accetta gli stessi parametri della GitHub Action [`setup-python`](https://github.com/actions/setup-python), rendendola immediata da utilizzare
+          - Accetta gli stessi parametri della GitHub Action [`setup-python`](https://github.com/actions/setup-python),
+            rendendola immediata da utilizzare
           - Supporta tutte le versioni di Jython dalla 2.0 alla 2.7.3, su runner Windows, Linux e macOS
 
       - name: "[jython21-backport](https://github.com/LukeSavefrogs/jython21-backport)"
@@ -121,7 +146,8 @@ cv:
         summary: Backport di funzionalità Python moderne per versioni legacy di Jython (fino alla 2.1)
         highlights:
           - Supporto per interpreti sia CPython che Jython fino alla versione 2.1
-          - Retrocompatibilità garantita tramite test automatici su molteplici versioni di Jython e CPython (su diversi sistemi operativi) tramite GitHub Actions
+          - Retrocompatibilità garantita tramite test automatici su molteplici versioni di Jython e CPython (su diversi
+            sistemi operativi) tramite GitHub Actions
           - |
             Le funzionalità implementate includono: 
             - modulo `json` (introdotto in Python 2.6)
@@ -138,11 +164,14 @@ cv:
         highlights:
           - Formatta l'input in colonne multiple, simile al comando Unix `column`, con supporto ai codici colore ANSI
           - Scritto in Perl, risultando facilmente portabile e utilizzabile in diversi ambienti
-          - Test automatici tramite GitHub Actions per garantire affidabilità e correttezza (utilizzando [Shellcheck](https://github.com/shellspec/shellspec) come framework di unit test)
+          - Test automatici tramite GitHub Actions per garantire affidabilità e correttezza (utilizzando
+            [Shellcheck](https://github.com/shellspec/shellspec) come framework di unit test)
 
     competenze:
       - label: Programmazione
-        details: Utilizzo regolare di Python, Java e Git; conoscenza operativa di PHP, JavaScript, SQL, HTML/CSS e linguaggi di scripting (Bash, Perl)
+        details:
+          Utilizzo regolare di Python, Java e Git; conoscenza operativa di PHP, JavaScript, SQL, HTML/CSS e linguaggi di
+          scripting (Bash, Perl)
       - label: Lingue
         details: "Italiano (madrelingua), Inglese (B2-C1)"
 
@@ -169,6 +198,8 @@ cv:
         start_date: 2017-10
         end_date: 2017-12
         location: Roma, Italia
-        summary: Corso intensivo sulla programmazione Java, sviluppo mobile con Ionic e tecnologie front-end (HTML, CSS, TypeScript, AngularJS)
+        summary:
+          Corso intensivo sulla programmazione Java, sviluppo mobile con Ionic e tecnologie front-end (HTML, CSS,
+          TypeScript, AngularJS)
 locale:
   language: italian
