@@ -40,7 +40,7 @@ jobs:
           echo "CV_VERSION=cv-$(date +'%Y.%m.%d-%H.%M.%S')" >> $GITHUB_OUTPUT
 
       - name: Create Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.version.outputs.CV_VERSION }}
           name: CV Version ${{ steps.version.outputs.CV_VERSION }}
