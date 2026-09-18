@@ -18,47 +18,49 @@ cv:
       - Sono costantemente alla ricerca di nuove sfide e opportunità per ampliare le mie competenze e contribuire a
         progetti di valore.
     esperienze:
-      - company: Team Office S.r.l.
-        position: Junior Software Developer
-        start_date: 2018-01
-        end_date: 2018-09
+      - company: Re-Edit S.r.l.
+        position: Automation developer
+        start_date: 2022-12
+        end_date: present
         location: Roma, Italia
-        summary: Sviluppatore di applicazioni web interne
+        summary: Sviluppatore Java per Unicredit
         highlights:
-          - Utilizzo di PHP, JavaScript, HTML/CSS e SQL per sviluppare e mantenere l'applicazione web a supporto delle
-            principali operazioni aziendali
-          - Collaborazione con un piccolo team per la raccolta dei requisiti, la progettazione e l'implementazione delle
-            funzionalità
-          - Utilizzo di C# per sviluppare un software ETL per importare i listini prezzi Excel dei fornitori nel
-            database aziendale e per sincronizzare gli appuntamenti tra il calendario interno e Outlook
-          - Attività di base di help desk IT, tra cui risoluzione di problemi hardware e software, supporto agli utenti
-            e manutenzione della rete
+          - Manutenzione, modernizzazione e sviluppo di nuove funzionalità per complesse applicazioni interne legacy in
+            Java 8, utilizzate per automatizzare il provisioning dei server, attività di configurazione e processi di
+            health-check
+          - Sviluppo e manutenzione di script di automazione (Bash, Python, Perl) per supportare varie attività
+            operative IT
+          - Sviluppo e manutenzione di script Jython (*Jython v2.1*) per automatizzare attività di amministrazione
+            WebSphere Application Server (*che ha portato alla creazione di
+            [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per una migliore esperienza di
+            sviluppo*)
+          - Utilizzo di Ansible Automation Platform per integrare strumenti di automazione esistenti e semplificare i
+            processi operativi IT
+          - Manutenzione di strumenti di build interni basati su Apache Maven, pipeline CI/CD Jenkins e GitHub Actions
+          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la coordinazione delle attività e
+            la collaborazione del team
 
       - company: Re-Edit S.r.l.
-        position: Operatore mainframe IBM z/TPF
-        start_date: 2018-11
-        end_date: 2020-02
+        position: Automation developer
+        start_date: 2024-04
+        end_date: 2024-09
         location: Roma, Italia
-        summary: Operatore mainframe per il sistema IBM z/TPF di Trenitalia
+        summary: Analisi dispositivi di rete CISCO per IPZS
         highlights:
-          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
-          - Monitoraggio e gestione del sistema IBM z/TPF, garantendone il regolare funzionamento e le prestazioni
-          - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a
-            incident per minimizzare i tempi di inattività
-          - Attività di build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e
-            non produzione
-          - Gestione dei backup di sistema (su più sistemi operativi) tramite Tivoli Storage Manager (TSM)
+          - Sviluppo di script Perl per automatizzare il recupero dei dati da numerosi dispositivi di rete CISCO
+          - Test automatici degli script tramite GitHub Actions, garantendo affidabilità e correttezza tra le release
 
       - company: Re-Edit S.r.l.
-        position: Operatore IBM DB2
-        start_date: 2020-01
-        end_date: 2021-02
+        position: Business Monitoring
+        start_date: 2022-06
+        end_date: 2022-11
         location: Roma, Italia
-        summary: Operatore database per Trenitalia
+        summary: Business Monitoring per Generali
         highlights:
-          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
-          - Monitoraggio e gestione dei database DB2 di produzione e non produzione
-          - Esecuzione di script DML/DDL
+          - Utilizzo di Microfocus Application Performance Management (APM) per monitorare processi aziendali e
+            applicazioni
+          - Manutenzione e aggiornamento di script di monitoraggio per garantire una raccolta e un'analisi accurata dei
+            dati
 
       - company: Re-Edit S.r.l.
         position: Operatore IBM WebSphere Application Server
@@ -82,48 +84,46 @@ cv:
             l'affidabilità e riducendo il carico di testing manuale
 
       - company: Re-Edit S.r.l.
-        position: Business Monitoring
-        start_date: 2022-06
-        end_date: 2022-11
+        position: Operatore IBM DB2
+        start_date: 2020-01
+        end_date: 2021-02
         location: Roma, Italia
-        summary: Business Monitoring per Generali
+        summary: Operatore database per Trenitalia
         highlights:
-          - Utilizzo di Microfocus Application Performance Management (APM) per monitorare processi aziendali e
-            applicazioni
-          - Manutenzione e aggiornamento di script di monitoraggio per garantire una raccolta e un'analisi accurata dei
-            dati
+          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
+          - Monitoraggio e gestione dei database DB2 di produzione e non produzione
+          - Esecuzione di script DML/DDL
 
       - company: Re-Edit S.r.l.
-        position: Automation developer
-        start_date: 2024-04
-        end_date: 2024-09
+        position: Operatore mainframe IBM z/TPF
+        start_date: 2018-11
+        end_date: 2020-02
         location: Roma, Italia
-        summary: Analisi dispositivi di rete CISCO per IPZS
+        summary: Operatore mainframe per il sistema IBM z/TPF di Trenitalia
         highlights:
-          - Sviluppo di script Perl per automatizzare il recupero dei dati da numerosi dispositivi di rete CISCO
-          - Test automatici degli script tramite GitHub Actions, garantendo affidabilità e correttezza tra le release
+          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
+          - Monitoraggio e gestione del sistema IBM z/TPF, garantendone il regolare funzionamento e le prestazioni
+          - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a
+            incident per minimizzare i tempi di inattività
+          - Attività di build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e
+            non produzione
+          - Gestione dei backup di sistema (su più sistemi operativi) tramite Tivoli Storage Manager (TSM)
 
-      - company: Re-Edit S.r.l.
-        position: Automation developer
-        start_date: 2022-12
-        end_date: present
+      - company: Team Office S.r.l.
+        position: Junior Software Developer
+        start_date: 2018-01
+        end_date: 2018-09
         location: Roma, Italia
-        summary: Sviluppatore Java per Unicredit
+        summary: Sviluppatore di applicazioni web interne
         highlights:
-          - Manutenzione, modernizzazione e sviluppo di nuove funzionalità per complesse applicazioni interne legacy in
-            Java 8, utilizzate per automatizzare il provisioning dei server, attività di configurazione e processi di
-            health-check
-          - Sviluppo e manutenzione di script di automazione (Bash, Python, Perl) per supportare varie attività
-            operative IT
-          - Sviluppo e manutenzione di script Jython (*Jython v2.1*) per automatizzare attività di amministrazione
-            WebSphere Application Server (*che ha portato alla creazione di
-            [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per una migliore esperienza di
-            sviluppo*)
-          - Utilizzo di Ansible Automation Platform per integrare strumenti di automazione esistenti e semplificare i
-            processi operativi IT
-          - Manutenzione di strumenti di build interni basati su Apache Maven, pipeline CI/CD Jenkins e GitHub Actions
-          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la coordinazione delle attività e
-            la collaborazione del team
+          - Utilizzo di PHP, JavaScript, HTML/CSS e SQL per sviluppare e mantenere l'applicazione web a supporto delle
+            principali operazioni aziendali
+          - Collaborazione con un piccolo team per la raccolta dei requisiti, la progettazione e l'implementazione delle
+            funzionalità
+          - Utilizzo di C# per sviluppare un software ETL per importare i listini prezzi Excel dei fornitori nel
+            database aziendale e per sincronizzare gli appuntamenti tra il calendario interno e Outlook
+          - Attività di base di help desk IT, tra cui risoluzione di problemi hardware e software, supporto agli utenti
+            e manutenzione della rete
 
     progetti:
       - name: "[setup-jython](https://github.com/LukeSavefrogs/setup-jython)"

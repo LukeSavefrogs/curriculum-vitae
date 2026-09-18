@@ -17,45 +17,48 @@ cv:
         frameworks over the years.
       - I'm always looking for new challenges and opportunities to grow my skills and contribute to exciting projects.
     experience:
-      - company: Team Office S.r.l.
-        position: Junior Software Developer
-        start_date: 2018-01
-        end_date: 2018-09
+      - company: Re-Edit S.r.l.
+        position: Automation developer
+        start_date: 2022-12
+        end_date: present
         location: Rome, Italy
-        summary: Web developer for internal web applications
+        summary: Java developer for Unicredit
         highlights:
-          - Used PHP, JavaScript, HTML/CSS, and SQL to develop and maintain the web application powering the company
-            operations
-          - Collaborated with a small team to gather requirements, design features, and implement solutions
-          - Used C# to develop an ETL software to import suppliers Excel pricing lists into the company database and to
-            syncronize appointments between the internal calendar and Outlook
-          - Basic IT help desk tasks, including hardware and software troubleshooting, user support, and network
-            maintenance
+          - Maintenance, modernization and development of new features for several complex legacy Java 8 internal
+            applications used to automate server provisioning, configuration tasks and healthcheck polling, among other
+            things
+          - Development and maintenance of multiple automation scripts (Bash, Python, Perl) to support various IT
+            operations tasks
+          - Development and maintenance of Jython scripts (*Jython v2.1*) to automate WebSphere Application Server
+            administration tasks (*which led to the creation of
+            [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) for a better developer experience*)
+          - Used Ansible Automation Platform to integrate with existing automation tools and streamline IT operations
+            processes
+          - Maintenance of internal build tools, based on Apache Maven and Jenkins CI/CD pipelines, as well as Github
+            Actions
+          - Usage of Git for version control and Github Issues/Github Projects for task management and team
+            collaboration
 
       - company: Re-Edit S.r.l.
-        position: IBM z/TPF Mainframe operator
-        start_date: 2018-11
-        end_date: 2020-02
+        position: Automation developer
+        start_date: 2024-04
+        end_date: 2024-09
         location: Rome, Italy
-        summary: Mainframe operator for Trenitalia's IBM z/TPF system
+        summary: CISCO Network device analysis for IPZS
         highlights:
-          - Worked on 8-hour shifts (including nights and weekends) to ensure 24/7 coverage
-          - Monitored and managed the IBM z/TPF mainframe system, ensuring its smooth operation and performance
-          - Handled system alerts, performed routine maintenance tasks (recoup, backup on tape), and responded to
-            incidents to minimize downtime
-          - Build, deploy and rollback of the seat reservation application on production and no-production environments
-          - Handling of system backups (on multiple operative systems) via Tivoli Storage Manager (TSM)
+          - Development of Perl scripts to automate data retrieval from a large number of CISCO network devices
+          - Automatic testing of the developed scripts using GitHub Actions, ensuring reliability and correctness
+            between releases
 
       - company: Re-Edit S.r.l.
-        position: IBM DB2 operator
-        start_date: 2020-01
-        end_date: 2021-02
+        position: Business Monitoring
+        start_date: 2022-06
+        end_date: 2022-11
         location: Rome, Italy
-        summary: Database operator for Trenitalia
+        summary: Business Monitoring for Generali
         highlights:
-          - Worked on 8-hour shifts (including nights and weekends) to ensure 24/7 coverage
-          - Monitored and managed production and non-production DB2 databases
-          - Execution of DML/DDL scripts
+          - Used Microfocus Application Performance Management (APM) to monitor business processes and applications
+          - Maintained and updated monitoring scripts to ensure accurate data collection and analysis
 
       - company: Re-Edit S.r.l.
         position: IBM WebSphere Application Server operator
@@ -78,47 +81,44 @@ cv:
             applications, improving reliability and reducing manual testing effort
 
       - company: Re-Edit S.r.l.
-        position: Business Monitoring
-        start_date: 2022-06
-        end_date: 2022-11
+        position: IBM DB2 operator
+        start_date: 2020-01
+        end_date: 2021-02
         location: Rome, Italy
-        summary: Business Monitoring for Generali
+        summary: Database operator for Trenitalia
         highlights:
-          - Used Microfocus Application Performance Management (APM) to monitor business processes and applications
-          - Maintained and updated monitoring scripts to ensure accurate data collection and analysis
+          - Worked on 8-hour shifts (including nights and weekends) to ensure 24/7 coverage
+          - Monitored and managed production and non-production DB2 databases
+          - Execution of DML/DDL scripts
 
       - company: Re-Edit S.r.l.
-        position: Automation developer
-        start_date: 2024-04
-        end_date: 2024-09
+        position: IBM z/TPF Mainframe operator
+        start_date: 2018-11
+        end_date: 2020-02
         location: Rome, Italy
-        summary: CISCO Network device analysis for IPZS
+        summary: Mainframe operator for Trenitalia's IBM z/TPF system
         highlights:
-          - Development of Perl scripts to automate data retrieval from a large number of CISCO network devices
-          - Automatic testing of the developed scripts using GitHub Actions, ensuring reliability and correctness
-            between releases
+          - Worked on 8-hour shifts (including nights and weekends) to ensure 24/7 coverage
+          - Monitored and managed the IBM z/TPF mainframe system, ensuring its smooth operation and performance
+          - Handled system alerts, performed routine maintenance tasks (recoup, backup on tape), and responded to
+            incidents to minimize downtime
+          - Build, deploy and rollback of the seat reservation application on production and no-production environments
+          - Handling of system backups (on multiple operative systems) via Tivoli Storage Manager (TSM)
 
-      - company: Re-Edit S.r.l.
-        position: Automation developer
-        start_date: 2022-12
-        end_date: present
+      - company: Team Office S.r.l.
+        position: Junior Software Developer
+        start_date: 2018-01
+        end_date: 2018-09
         location: Rome, Italy
-        summary: Java developer for Unicredit
+        summary: Web developer for internal web applications
         highlights:
-          - Maintenance, modernization and development of new features for several complex legacy Java 8 internal
-            applications used to automate server provisioning, configuration tasks and healthcheck polling, among other
-            things
-          - Development and maintenance of multiple automation scripts (Bash, Python, Perl) to support various IT
-            operations tasks
-          - Development and maintenance of Jython scripts (*Jython v2.1*) to automate WebSphere Application Server
-            administration tasks (*which led to the creation of
-            [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) for a better developer experience*)
-          - Used Ansible Automation Platform to integrate with existing automation tools and streamline IT operations
-            processes
-          - Maintenance of internal build tools, based on Apache Maven and Jenkins CI/CD pipelines, as well as Github
-            Actions
-          - Usage of Git for version control and Github Issues/Github Projects for task management and team
-            collaboration
+          - Used PHP, JavaScript, HTML/CSS, and SQL to develop and maintain the web application powering the company
+            operations
+          - Collaborated with a small team to gather requirements, design features, and implement solutions
+          - Used C# to develop an ETL software to import suppliers Excel pricing lists into the company database and to
+            syncronize appointments between the internal calendar and Outlook
+          - Basic IT help desk tasks, including hardware and software troubleshooting, user support, and network
+            maintenance
 
     projects:
       - name: "[setup-jython](https://github.com/LukeSavefrogs/setup-jython)"
