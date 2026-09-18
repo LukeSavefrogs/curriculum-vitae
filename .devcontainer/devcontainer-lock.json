@@ -1,0 +1,29 @@
+{
+  "features": {
+    "ghcr.io/devcontainer-community/devcontainer-features/astral.sh-uv:1": {
+      "version": "1.0.6",
+      "resolved": "ghcr.io/devcontainer-community/devcontainer-features/astral.sh-uv@sha256:36f95b90080248a05aba7b1b3cecf8018bb6d7222f6274f03f050b502abd4fe7",
+      "integrity": "sha256:36f95b90080248a05aba7b1b3cecf8018bb6d7222f6274f03f050b502abd4fe7"
+    },
+    "ghcr.io/devcontainers-extra/features/act:1": {
+      "version": "1.0.15",
+      "resolved": "ghcr.io/devcontainers-extra/features/act@sha256:db4a2194930d1f7ec62822d4f600dd2fa4aff3c33b98cdb0b578b64ffb10924c",
+      "integrity": "sha256:db4a2194930d1f7ec62822d4f600dd2fa4aff3c33b98cdb0b578b64ffb10924c"
+    },
+    "ghcr.io/devcontainers-extra/features/actionlint:1": {
+      "version": "1.0.7",
+      "resolved": "ghcr.io/devcontainers-extra/features/actionlint@sha256:6a3dde90cb31e366892f8f2ebb766d73d7293d6e79ed9ac4041014d31599fdda",
+      "integrity": "sha256:6a3dde90cb31e366892f8f2ebb766d73d7293d6e79ed9ac4041014d31599fdda"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:4": {
+      "version": "4.1.1",
+      "resolved": "ghcr.io/devcontainers/features/docker-in-docker@sha256:2b44bcb32e75d5a3c028479f7f957cf7d5e42d81761373025a8d501dd3748f88",
+      "integrity": "sha256:2b44bcb32e75d5a3c028479f7f957cf7d5e42d81761373025a8d501dd3748f88"
+    },
+    "ghcr.io/devcontainers/features/github-cli:1": {
+      "version": "1.1.2",
+      "resolved": "ghcr.io/devcontainers/features/github-cli@sha256:7c409bf6316ffd85f04fd92fba85a744282639e603417dd4796409866bdb6805",
+      "integrity": "sha256:7c409bf6316ffd85f04fd92fba85a744282639e603417dd4796409866bdb6805"
+    }
+  }
+}
