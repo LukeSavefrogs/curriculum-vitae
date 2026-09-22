@@ -156,7 +156,7 @@ jobs:
 
       - name: Setup Pages
         id: pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload artifacts for Github Pages
         uses: actions/upload-pages-artifact@v5
