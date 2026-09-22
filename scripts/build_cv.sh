@@ -48,6 +48,7 @@ main () {
                 printf "\n"
                 printf "Options:\n"
                 printf "  -w, --watch          Enable watch mode to monitor changes and rebuild automatically\n"
+                printf "  --no-tmux            Disable tmux usage even if available\n"
                 printf "  -h, --help           Show this help message and exit\n"
                 return 0;
             ;;
