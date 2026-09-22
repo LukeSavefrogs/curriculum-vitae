@@ -69,7 +69,7 @@ jobs:
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.version.outputs.CV_VERSION }}
-          name: CV Version ${{ steps.version.outputs.CV_VERSION }}
+          name: ${{ steps.version.outputs.CV_VERSION }}
           body: |
             # `${{ steps.version.outputs.CV_VERSION }}`
 
