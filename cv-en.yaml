@@ -144,12 +144,10 @@ cv:
           - Backwards compatibility ensured by automatic testing against multiple Jython and CPython versions (on
             different operative systems) using GitHub Actions (powered by the
             [setup-jython](https://github.com/LukeSavefrogs/setup-jython) action).
-          - |
+          - >
             Implemented features include: 
-            - `json` module (introduced in Python 2.6)
-            - `pathlib.Path` class (introduced in Python 3.4)
-            - `bool` class (introduced in Python 2.3)
-            - `sorted` function (introduced in Python 2.4)
+            `json` module (Python >= 2.6), `pathlib.Path` class (Python >= 3.4), `bool` class (Python >= 2.3), `sorted`
+            function (Python >= 2.4)
       - name: "[column-ansi](https://github.com/LukeSavefrogs/column_ansi)"
         date:
         start_date: 2021-12
