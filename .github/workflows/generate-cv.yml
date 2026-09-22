@@ -1,4 +1,4 @@
-name: Generate CV
+name: Generate CV artifacts
 
 on:
   workflow_dispatch:
