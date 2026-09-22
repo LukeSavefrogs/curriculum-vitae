@@ -6,6 +6,9 @@ on:
 permissions:
   contents: write
 
+env:
+  GITHUB_REPOSITORY_URL: "https://${{ github.server_url }}/${{ github.repository }}"
+
 jobs:
   generate-cv:
     uses: ./.github/workflows/generate-cv.yml
@@ -36,15 +39,51 @@ jobs:
 
       - name: Generate version tag
         id: version
+        shell: bash
         run: |
-          echo "CV_VERSION=cv-$(date +'%Y.%m.%d-%H.%M.%S')" >> $GITHUB_OUTPUT
+          cv_date=$(date +'%Y.%m.%d')
+          cv_time=$(date +'%H.%M.%S')
+          cv_version="cv-${cv_date}-${cv_time}"
+
+          echo "CV_DATE=$cv_date" >> $GITHUB_OUTPUT
+          echo "CV_TIME=$cv_time" >> $GITHUB_OUTPUT
+          echo "CV_VERSION=$cv_version" >> $GITHUB_OUTPUT
+
+          (
+            delimiter="$(tr -dc A-Za-z0-9 </dev/urandom 2>/dev/null | head -c 64)" || true
+            echo "GENERATED_FILES_TABLE<<${delimiter}"
+            echo "| Language | File Name |"
+            echo "|----------|-----------|"
+            for file in build/release/*.pdf; do
+              filename="$(basename "$file")"
+              lang="${filename##*-}"
+              lang="${lang%.pdf}"
+
+              download_base_url="${{ env.GITHUB_REPOSITORY_URL }}/releases/download/$cv_version"
+              echo "| ${lang} | [${filename}](${download_base_url}/${filename}) |"
+            done
+            echo "$delimiter"
+          ) >> $GITHUB_OUTPUT
 
       - name: Create Release
         uses: softprops/action-gh-release@v3
         with:
           tag_name: ${{ steps.version.outputs.CV_VERSION }}
           name: CV Version ${{ steps.version.outputs.CV_VERSION }}
-          body: "Automated release of CV version ${{ steps.version.outputs.CV_VERSION }}"
+          body: |
+            # `${{ steps.version.outputs.CV_VERSION }}`
+
+            This is an automated release of the CV generated from the latest commit on the main branch.
+
+            ## Generated files
+
+            ${{ steps.version.outputs.GENERATED_FILES_TABLE }}
+
+            <sub>
+              <a href="${{ env.GITHUB_REPOSITORY_URL }}/releases/latest">
+                Go to latest CV release
+              </a>
+            </sub>
           make_latest: true
           fail_on_unmatched_files: true
           files: |
@@ -56,19 +95,11 @@ jobs:
           # New CV Release Created
           A new CV version has been released: **${{ steps.version.outputs.CV_VERSION }}**
 
-          You can download the generated CV files from the [Releases](https://github.com/${{ github.repository }}/releases/tag/${{ steps.version.outputs.CV_VERSION }})
+          You can download the generated CV files from the [Releases](${{ env.GITHUB_REPOSITORY_URL }}/releases/tag/${{ steps.version.outputs.CV_VERSION }})
 
           ## Generated files
-          | Language | File Name |
-          |----------|-----------|
-          $(for file in build/release/*.pdf; do
-              filename="$(basename "$file")"
-              lang="${filename##*-}"
-              lang="${lang%.pdf}"
-              echo "| ${lang} | ${filename} |"
-            done)
-          EOF
 
+          ${{ steps.version.outputs.GENERATED_FILES_TABLE }}
   gh-pages:
     runs-on: ubuntu-latest
     needs: [generate-cv]
