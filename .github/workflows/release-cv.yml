@@ -103,6 +103,26 @@ jobs:
             cp "$file" "build/release/${lang}/index.html"
           done
 
+          cat <<-EOF > build/release/index.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Curriculum Vitae</title>
+          </head>
+          <body>
+            <h1>Curriculum Vitae</h1>
+            <ul>
+              $(for dir in build/release/*/; do
+                  lang="$(basename "$dir")"
+                  echo "<li><a href=\"${lang}/\">${lang}</a></li>"
+                done)
+            </ul>
+          </body>
+          </html>
+          EOF
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
