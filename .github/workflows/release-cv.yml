@@ -113,10 +113,10 @@ jobs:
           </head>
           <body>
             <h1>Curriculum Vitae</h1>
-            <ul>
+            <ul id="language-list">
               $(for dir in build/release/*/; do
                   lang="$(basename "$dir")"
-                  echo "<li><a href=\"${lang}/\">${lang}</a></li>"
+                  echo "<li class='language'><a href=\"${lang}/\">${lang}</a></li>"
                 done)
             </ul>
           </body>
