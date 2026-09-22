@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 env:
-  GITHUB_REPOSITORY_URL: "https://${{ github.server_url }}/${{ github.repository }}"
+  GITHUB_REPOSITORY_URL: "${{ github.server_url }}/${{ github.repository }}"
 
 jobs:
   generate-cv:
