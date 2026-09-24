@@ -24,20 +24,18 @@ cv:
         location: Rome, Italy
         summary: Java developer for Unicredit
         highlights:
-          - Maintenance, modernization and development of new features for several complex legacy Java 8 internal
-            applications used to automate server provisioning, configuration tasks and healthcheck polling, among other
-            things
-          - Development and maintenance of multiple automation scripts (Bash, Python, Perl) to support various IT
-            operations tasks
-          - Development and maintenance of Jython scripts (*Jython v2.1*) to automate WebSphere Application Server
-            administration tasks (*which led to the creation of
-            [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) for a better developer experience*)
-          - Used Ansible Automation Platform to integrate with existing automation tools and streamline IT operations
-            processes
-          - Maintenance of internal build tools, based on Apache Maven and Jenkins CI/CD pipelines, as well as Github
-            Actions
-          - Usage of Git for version control and Github Issues/Github Projects for task management and team
-            collaboration
+          - Maintained, modernized and developed new features for complex legacy Java EE 8 internal applications used to
+            automate server provisioning, configuration tasks, healthcheck polling and other IT operations; some of the
+            technologies used were CDI, JPA and JSF/Vaadin, with the application deployed on IBM WebSphere Liberty
+          - Developed and maintained automation scripts in Bash, Python and Perl to support various IT operations tasks
+          - Developed and maintained Jython 2.1 scripts to automate WebSphere Application Server administration tasks,
+            leading to the creation of [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) to
+            improve the development experience
+          - Worked with Oracle databases, including writing and optimizing SQL queries, stored procedures, and triggers
+            to support application functionality
+          - Integrated Ansible Automation Platform with existing automation tools to streamline IT operations processes
+          - Maintained internal build and CI/CD tooling based on Apache Maven, Jenkins and GitHub Actions
+          - Used Git for version control and GitHub Issues and Projects for task management and team collaboration
 
       - company: Re-Edit S.r.l.
         position: Automation developer

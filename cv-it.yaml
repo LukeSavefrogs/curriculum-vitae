@@ -25,20 +25,23 @@ cv:
         location: Roma, Italia
         summary: Sviluppatore Java per Unicredit
         highlights:
-          - Manutenzione, modernizzazione e sviluppo di nuove funzionalità per complesse applicazioni interne legacy in
-            Java 8, utilizzate per automatizzare il provisioning dei server, attività di configurazione e processi di
-            health-check
-          - Sviluppo e manutenzione di script di automazione (Bash, Python, Perl) per supportare varie attività
+          - Manutenzione, modernizzazione e sviluppo di nuove funzionalità per complesse applicazioni interne legacy
+            Java EE 8, utilizzate per automatizzare il provisioning dei server, le attività di configurazione, il
+            polling di health-check e altre operazioni IT; tra le tecnologie impiegate c'erano CDI, JPA e JSF/Vaadin,
+            con l'applicazione distribuita su IBM WebSphere Liberty
+          - Sviluppo e manutenzione di script di automazione in Bash, Python e Perl per supportare varie attività
             operative IT
-          - Sviluppo e manutenzione di script Jython (*Jython v2.1*) per automatizzare attività di amministrazione
-            WebSphere Application Server (*che ha portato alla creazione di
-            [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per una migliore esperienza di
-            sviluppo*)
-          - Utilizzo di Ansible Automation Platform per integrare strumenti di automazione esistenti e semplificare i
+          - Sviluppo e manutenzione di script Jython 2.1 per automatizzare attività di amministrazione di WebSphere
+            Application Server, portando alla creazione di
+            [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per migliorare l'esperienza di
+            sviluppo
+          - Utilizzo di database Oracle, inclusi la scrittura e l'ottimizzazione di query SQL, stored procedure e
+            trigger per supportare le funzionalità dell'applicazione
+          - Integrazione di Ansible Automation Platform con strumenti di automazione esistenti per semplificare i
             processi operativi IT
-          - Manutenzione di strumenti di build interni basati su Apache Maven, pipeline CI/CD Jenkins e GitHub Actions
-          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la coordinazione delle attività e
-            la collaborazione del team
+          - Manutenzione di strumenti di build interni basati su Apache Maven, Jenkins e GitHub Actions
+          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la gestione delle attività e la
+            collaborazione del team
 
       - company: Re-Edit S.r.l.
         position: Automation developer
