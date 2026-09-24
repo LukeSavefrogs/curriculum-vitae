@@ -181,7 +181,7 @@ cv:
           distribuzione (Jenkins, GitHub Actions)
       - label: Generative AI
         details: |
-          Conoscenza pratica di strumenti AI (ad esempio GitHub Copilot, Claude Code, ChatGPT) per brainstorming,
+          Conoscenza pratica di strumenti/agenti AI (ad esempio GitHub Copilot, Claude Code, ChatGPT) per brainstorming,
           generazione di codice, debugging e supporto alla documentazione
 
     certificazioni:

@@ -170,7 +170,7 @@ cv:
           Working regularly with CI/CD tools and practices, automated testing (e.g. JUnit, Pytest), and deployment pipelines (Jenkins, GitHub Actions)
       - label: Generative AI
         details: |
-          Familiar with AI tools (e.g. GitHub Copilot, Claude Code, ChatGPT) for brainstorming, code generation, debugging, and documentation support
+          Familiar with AI tools/agents (e.g. GitHub Copilot, Claude Code, ChatGPT) for brainstorming, code generation, debugging, and documentation support
 
     certifications:
       - name: Cisco CCNA Routing & Switching 1
