@@ -175,6 +175,14 @@ cv:
           scripting (Bash, Perl)
       - label: Lingue
         details: "Italiano (madrelingua), Inglese (B2-C1)"
+      - label: Continuous Integration / Continuous Deployment
+        details: |
+          Utilizzo regolare di strumenti e pratiche CI/CD, testing automatizzato (ad esempio JUnit, Pytest) e pipeline di
+          distribuzione (Jenkins, GitHub Actions)
+      - label: Generative AI
+        details: |
+          Conoscenza pratica di strumenti AI (ad esempio GitHub Copilot, Claude Code, ChatGPT) per brainstorming,
+          generazione di codice, debugging e supporto alla documentazione
 
     certificazioni:
       - name: Cisco CCNA Routing & Switching 1
