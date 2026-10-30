@@ -8,17 +8,21 @@
 
 ## Publishing to job boards
 
+The **Release new CV version** workflow can also upload the generated CV to job boards. The `JOB_CV_LANG` environment variable in [`release-cv.yml`](.github/workflows/release-cv.yml) selects which language is uploaded: it defaults to `it` at workflow level and can be overridden per job.
+
+### ReteInformaticaLavoro
+
 The [`update-reteinformaticalavoro-cv`](.github/actions/update-reteinformaticalavoro-cv) composite action replaces the CV attached to a [reteinformaticalavoro.it](https://reteinformaticalavoro.it) candidate profile, using plain HTTP requests (`curl` + `jq`, no browser automation).
 
-It runs as part of the **Release new CV version** workflow (uploading the Italian PDF) when these repository secrets are set:
+The `update-reteinformaticalavoro` job runs only when both of these repository secrets are set:
 
-- `RETEINFORMATICALAVORO_EMAIL`
+- `RETEINFORMATICALAVORO_USERNAME`
 - `RETEINFORMATICALAVORO_PASSWORD`
 
 ```yaml
 - uses: ./.github/actions/update-reteinformaticalavoro-cv
   with:
-    email: ${{ secrets.RETEINFORMATICALAVORO_EMAIL }}
+    email: ${{ secrets.RETEINFORMATICALAVORO_USERNAME }}
     password: ${{ secrets.RETEINFORMATICALAVORO_PASSWORD }}
-    cv-file: build/it/<your-cv>.pdf
+    cv-file: build/lang/it/<your-cv>.pdf
 ```
