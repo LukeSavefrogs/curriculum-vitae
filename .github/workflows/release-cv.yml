@@ -100,6 +100,7 @@ jobs:
           ## Generated files
 
           ${{ steps.version.outputs.GENERATED_FILES_TABLE }}
+
   gh-pages:
     runs-on: ubuntu-latest
     needs: [generate-cv]
