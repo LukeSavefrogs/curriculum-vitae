@@ -20,26 +20,25 @@ jobs:
   check-credentials:
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
-    outputs:
-      enabled: ${{ steps.check.outputs.enabled }}
     steps:
+      # Fail (instead of silently skipping) so the status badge doesn't report an upload that never happened
       - name: Check credentials
-        id: check
         env:
           RIL_USERNAME: ${{ secrets.RETEINFORMATICALAVORO_USERNAME }}
           RIL_PASSWORD: ${{ secrets.RETEINFORMATICALAVORO_PASSWORD }}
         run: |
-          if [[ -n "$RIL_USERNAME" && -n "$RIL_PASSWORD" ]]; then
-            echo "enabled=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "::notice::RETEINFORMATICALAVORO_USERNAME/PASSWORD secrets not set, skipping upload"
-            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          missing=()
+          [[ -n "$RIL_USERNAME" ]] || missing+=(RETEINFORMATICALAVORO_USERNAME)
+          [[ -n "$RIL_PASSWORD" ]] || missing+=(RETEINFORMATICALAVORO_PASSWORD)
+          if (( ${#missing[@]} )); then
+            echo "::error::Missing repository secrets: ${missing[*]}"
+            exit 1
           fi
 
   # Manual runs have no release run to take the CV from, so they build it themselves
   generate-cv:
     needs: [check-credentials]
-    if: github.event_name == 'workflow_dispatch' && needs.check-credentials.outputs.enabled == 'true'
+    if: github.event_name == 'workflow_dispatch'
     uses: ./.github/workflows/generate-cv.yml
 
   update-cv:
@@ -47,7 +46,7 @@ jobs:
     needs: [check-credentials, generate-cv]
     if: >-
       always()
-      && needs.check-credentials.outputs.enabled == 'true'
+      && needs.check-credentials.result == 'success'
       && (needs.generate-cv.result == 'success' || needs.generate-cv.result == 'skipped')
     env:
       JOB_CV_LANG: it
