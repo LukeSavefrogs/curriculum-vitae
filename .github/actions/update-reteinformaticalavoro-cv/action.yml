@@ -1,0 +1,47 @@
+name: Update CV on Reteinformaticalavoro
+description: >-
+  Logs in to https://reteinformaticalavoro.it and replaces the CV document
+  attached to the candidate profile. Uses plain HTTP requests (curl + jq),
+  no browser automation.
+
+inputs:
+  email:
+    description: Account email (store it as a secret)
+    required: true
+  password:
+    description: Account password (store it as a secret)
+    required: true
+  cv-file:
+    description: Path to the CV file to upload (PDF/DOC, max ~10 MB)
+    required: true
+  base-url:
+    description: Website base URL
+    required: false
+    default: https://reteinformaticalavoro.it
+
+outputs:
+  curriculum-id:
+    description: Id of the candidate curriculum
+    value: ${{ steps.upload.outputs.curriculum-id }}
+  document-id:
+    description: Id of the newly uploaded document
+    value: ${{ steps.upload.outputs.document-id }}
+  file-path:
+    description: Server-side path of the uploaded file
+    value: ${{ steps.upload.outputs.file-path }}
+  file-date:
+    description: Upload timestamp reported by the website
+    value: ${{ steps.upload.outputs.file-date }}
+
+runs:
+  using: composite
+  steps:
+    - name: Upload CV to reteinformaticalavoro.it
+      id: upload
+      shell: bash
+      env:
+        RIL_EMAIL: ${{ inputs.email }}
+        RIL_PASSWORD: ${{ inputs.password }}
+        RIL_CV_FILE: ${{ inputs.cv-file }}
+        RIL_BASE_URL: ${{ inputs.base-url }}
+      run: bash "${{ github.action_path }}/update-cv.sh"
