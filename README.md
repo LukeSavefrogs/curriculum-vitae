@@ -8,7 +8,11 @@
 
 ## Publishing to job boards
 
-The **Release new CV version** workflow can also upload the generated CV to job boards. The `JOB_CV_LANG` environment variable in [`release-cv.yml`](.github/workflows/release-cv.yml) selects which language is uploaded: it defaults to `it` at workflow level and can be overridden per job.
+| Job board | Profile | Deploy status |
+| --- | --- | --- |
+| ReteInformaticaLavoro | [reteinformaticalavoro.it](https://reteinformaticalavoro.it) (no public profile page) | [![Publish CV to ReteInformaticaLavoro](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml/badge.svg)](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml) |
+
+Each job board has its own `publish-<job-board>.yml` workflow, which runs after every successful **Release new CV version** run (uploading the CV from that release) and can also be started by hand (building the CV itself). The `JOB_CV_LANG` environment variable in each of these workflows selects which language is uploaded: it defaults to `it` at workflow level and can be overridden per job.
 
 ### ReteInformaticaLavoro
 
@@ -19,7 +23,7 @@ RIL_PASSWORD=... uv run --project .github/actions/update-reteinformaticalavoro-c
   .github/actions/update-reteinformaticalavoro-cv/update_cv.py --email <email> --cv-file build/lang/it/<your-cv>.pdf
 ```
 
-The `update-reteinformaticalavoro` job runs only when both of these repository secrets are set:
+The [`publish-reteinformaticalavoro.yml`](.github/workflows/publish-reteinformaticalavoro.yml) workflow uploads the CV only when both of these repository secrets are set:
 
 - `RETEINFORMATICALAVORO_USERNAME`
 - `RETEINFORMATICALAVORO_PASSWORD`

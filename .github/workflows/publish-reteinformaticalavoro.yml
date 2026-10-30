@@ -1,0 +1,80 @@
+name: Publish CV to ReteInformaticaLavoro
+
+# Runs on its own (instead of as a job of "Release new CV version") so that it has its
+# own run history and status badge.
+on:
+  workflow_run:
+    workflows: ["Release new CV version"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read # to download the CV artifact of the triggering release run
+
+env:
+  # Default CV language uploaded to job boards (jobs can override it)
+  JOB_CV_LANG: it
+
+jobs:
+  check-credentials:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - name: Check credentials
+        id: check
+        env:
+          RIL_USERNAME: ${{ secrets.RETEINFORMATICALAVORO_USERNAME }}
+          RIL_PASSWORD: ${{ secrets.RETEINFORMATICALAVORO_PASSWORD }}
+        run: |
+          if [[ -n "$RIL_USERNAME" && -n "$RIL_PASSWORD" ]]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::notice::RETEINFORMATICALAVORO_USERNAME/PASSWORD secrets not set, skipping upload"
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  # Manual runs have no release run to take the CV from, so they build it themselves
+  generate-cv:
+    needs: [check-credentials]
+    if: github.event_name == 'workflow_dispatch' && needs.check-credentials.outputs.enabled == 'true'
+    uses: ./.github/workflows/generate-cv.yml
+
+  update-cv:
+    runs-on: ubuntu-latest
+    needs: [check-credentials, generate-cv]
+    if: >-
+      always()
+      && needs.check-credentials.outputs.enabled == 'true'
+      && (needs.generate-cv.result == 'success' || needs.generate-cv.result == 'skipped')
+    env:
+      JOB_CV_LANG: it
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Download CV artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: generated-cv
+          path: build/lang/
+          run-id: ${{ github.event.workflow_run.id || github.run_id }}
+          github-token: ${{ github.token }}
+
+      - name: Find CV
+        id: cv
+        run: |
+          lang="${JOB_CV_LANG:-it}"
+          [[ -d "build/lang/${lang}" ]] || { echo "::error::No CV generated for language '${lang}'"; exit 1; }
+          file="$(find "build/lang/${lang}" -maxdepth 1 -name '*.pdf' | head -n1)"
+          [[ -n "$file" ]] || { echo "::error::No PDF found for language '${lang}'"; exit 1; }
+          echo "path=$file" >> "$GITHUB_OUTPUT"
+
+      - name: Update CV on reteinformaticalavoro.it
+        uses: ./.github/actions/update-reteinformaticalavoro-cv
+        with:
+          email: ${{ secrets.RETEINFORMATICALAVORO_USERNAME }}
+          password: ${{ secrets.RETEINFORMATICALAVORO_PASSWORD }}
+          cv-file: ${{ steps.cv.outputs.path }}
