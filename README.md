@@ -10,6 +10,6 @@
 
 | Job board | Link | Deploy status |
 | --- | :---: | --- |
-| ReteInformaticaLavoro | [Website Homepage](https://reteinformaticalavoro.it)<br/><br/><sub><i>(no public profile page)</i></sub> | [![Publish CV to ReteInformaticaLavoro](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml/badge.svg)](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml) |
+| ReteInformaticaLavoro | [Website Homepage](https://reteinformaticalavoro.it)<br/><sub><i>(no public profile page)</i></sub> | [![Publish CV to ReteInformaticaLavoro](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml/badge.svg)](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml) |
 
 The CV is automatically updated on these job boards with each new release (_implementation details are in each job board's action_).
