@@ -100,6 +100,39 @@ jobs:
           ## Generated files
 
           ${{ steps.version.outputs.GENERATED_FILES_TABLE }}
+  update-reteinformaticalavoro:
+    runs-on: ubuntu-latest
+    needs: [generate-cv]
+    env:
+      RIL_EMAIL: ${{ secrets.RETEINFORMATICALAVORO_EMAIL }}
+    steps:
+      - name: Checkout repository
+        if: env.RIL_EMAIL != ''
+        uses: actions/checkout@v7
+
+      - name: Download CV artifacts
+        if: env.RIL_EMAIL != ''
+        uses: actions/download-artifact@v8
+        with:
+          name: generated-cv
+          path: build/lang/
+
+      - name: Find Italian CV
+        if: env.RIL_EMAIL != ''
+        id: cv
+        run: |
+          file="$(find build/lang/it -maxdepth 1 -name '*.pdf' | head -n1)"
+          [[ -n "$file" ]] || { echo "::error::No Italian PDF found"; exit 1; }
+          echo "path=$file" >> "$GITHUB_OUTPUT"
+
+      - name: Update CV on reteinformaticalavoro.it
+        if: env.RIL_EMAIL != ''
+        uses: ./.github/actions/update-reteinformaticalavoro-cv
+        with:
+          email: ${{ secrets.RETEINFORMATICALAVORO_EMAIL }}
+          password: ${{ secrets.RETEINFORMATICALAVORO_PASSWORD }}
+          cv-file: ${{ steps.cv.outputs.path }}
+
   gh-pages:
     runs-on: ubuntu-latest
     needs: [generate-cv]
