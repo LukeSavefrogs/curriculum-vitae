@@ -12,7 +12,12 @@ The **Release new CV version** workflow can also upload the generated CV to job 
 
 ### ReteInformaticaLavoro
 
-The [`update-reteinformaticalavoro-cv`](.github/actions/update-reteinformaticalavoro-cv) composite action replaces the CV attached to a [reteinformaticalavoro.it](https://reteinformaticalavoro.it) candidate profile, using plain HTTP requests (`curl` + `jq`, no browser automation).
+The [`update-reteinformaticalavoro-cv`](.github/actions/update-reteinformaticalavoro-cv) composite action replaces the CV attached to a [reteinformaticalavoro.it](https://reteinformaticalavoro.it) candidate profile, using plain HTTP requests (Python + `requests`, no browser automation). It is a self-contained [uv](https://docs.astral.sh/uv/) project (`pyproject.toml` + `uv.lock`), so it can also be run locally:
+
+```bash
+RIL_PASSWORD=... uv run --project .github/actions/update-reteinformaticalavoro-cv \
+  .github/actions/update-reteinformaticalavoro-cv/update_cv.py --email <email> --cv-file build/lang/it/<your-cv>.pdf
+```
 
 The `update-reteinformaticalavoro` job runs only when both of these repository secrets are set:
 
