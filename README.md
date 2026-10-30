@@ -8,9 +8,9 @@
 
 ## Publishing to job boards
 
-| Job board | Profile | Deploy status |
-| --- | --- | --- |
-| ReteInformaticaLavoro | [reteinformaticalavoro.it](https://reteinformaticalavoro.it) (no public profile page) | [![Publish CV to ReteInformaticaLavoro](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml/badge.svg)](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml) |
+| Job board | Link | Deploy status |
+| --- | :---: | --- |
+| ReteInformaticaLavoro | [Website Homepage](https://reteinformaticalavoro.it)<br/><br/><sub><i>(no public profile page)</i></sub> | [![Publish CV to ReteInformaticaLavoro](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml/badge.svg)](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/publish-reteinformaticalavoro.yml) |
 
 Each job board has its own `publish-<job-board>.yml` workflow, which runs after every successful **Release new CV version** run (uploading the CV from that release) and can also be started by hand (building the CV itself). The `JOB_CV_LANG` environment variable in each of these workflows selects which language is uploaded: it defaults to `it` at workflow level and can be overridden per job.
 
