@@ -1,0 +1,268 @@
+---
+interface Props {
+  lang: string;
+  title: string;
+  description?: string;
+  alternates?: { lang: string; href: string }[];
+}
+
+const { lang, title, description, alternates = [] } = Astro.props;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {alternates.map((alternate) => <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />)}
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #fcfcfb;
+    --text: #1d1d1f;
+    --muted: #63646a;
+    --rule: #e2e2df;
+    --accent: #23508e;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #17181a;
+      --text: #e6e6e3;
+      --muted: #a2a3a8;
+      --rule: #34353a;
+      --accent: #93b6e6;
+    }
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font:
+      1rem/1.6 system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      sans-serif;
+  }
+
+  main {
+    max-width: 46rem;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+  }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.875em;
+  }
+
+  p {
+    margin: 0 0 0.6rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 2rem 0 0.5rem;
+  }
+
+  h2 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.4rem;
+    margin: 2.5rem 0 1rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.1rem;
+  }
+
+  li + li {
+    margin-top: 0.2rem;
+  }
+
+  /* Inline lists separated by a middle dot */
+  .inline-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .inline-list li {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .inline-list li:not(:last-child)::after {
+    content: "·";
+    margin: 0 0.5em;
+    color: var(--muted);
+  }
+
+  .top {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .top [aria-current] {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .contact {
+    color: var(--muted);
+  }
+
+  .entry + .entry {
+    margin-top: 1.4rem;
+  }
+
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .subtitle {
+    font-weight: 400;
+  }
+
+  .summary {
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .meta {
+    flex-shrink: 0;
+    margin: 0;
+    text-align: right;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+
+  .meta span {
+    display: block;
+  }
+
+  .one-line {
+    display: grid;
+    grid-template-columns: minmax(8rem, 13rem) 1fr;
+    gap: 0.6rem 1.5rem;
+    margin: 0;
+  }
+
+  .one-line dt {
+    font-weight: 600;
+  }
+
+  .one-line dd {
+    margin: 0;
+  }
+
+  @media (max-width: 40rem) {
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    .entry-head {
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .meta {
+      order: -1;
+      text-align: left;
+    }
+
+    .meta span {
+      display: inline;
+    }
+
+    .meta span + span::before {
+      content: "·";
+      margin: 0 0.5em;
+    }
+
+    .one-line {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+
+    .one-line dd + dt {
+      margin-top: 0.6rem;
+    }
+  }
+
+  @media print {
+    :root {
+      --bg: #fff;
+      --text: #000;
+      --muted: #444;
+      --accent: #000;
+    }
+
+    .top {
+      display: none;
+    }
+
+    main {
+      max-width: none;
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .entry {
+      break-inside: avoid;
+    }
+  }
+</style>
