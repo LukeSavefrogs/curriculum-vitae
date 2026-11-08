@@ -92,6 +92,10 @@ jobs:
 
             ${{ steps.version.outputs.GENERATED_FILES_TABLE }}
 
+            <!-- ats-score:start -->
+            _The ATS score is added by the [Check CV ATS score](${{ env.GITHUB_REPOSITORY_URL }}/actions/workflows/ats-score.yml) workflow._
+            <!-- ats-score:end -->
+
             <sub>
               <a href="${{ env.GITHUB_REPOSITORY_URL }}/releases/latest">
                 Go to latest CV release

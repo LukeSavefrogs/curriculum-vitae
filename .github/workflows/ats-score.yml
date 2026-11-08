@@ -1,0 +1,172 @@
+name: Check CV ATS score
+
+# Runs on its own (instead of as a job of "Release new CV version") so that it has its
+# own run history and status badge.
+on:
+  workflow_run:
+    workflows: ["Release new CV version"]
+    types: [completed]
+  push:
+    branches: ["**"] # all branches, but not tags
+    paths:
+      - "cv-*.yaml"
+      # The layout changes how ATS parsers read the PDF
+      - "config/**"
+      - "scripts/build_cv.sh"
+      # The check itself, so that checker updates are tested
+      - ".github/workflows/ats-score.yml"
+      - ".github/actions/ats-score/**"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release to check (defaults to the latest release)
+        type: string
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+env:
+  # Only the English CV is checked: both checkers only recognize English section names and action verbs
+  ATS_CV_LANG: en
+
+jobs:
+  # Pushes have no release to take the CV from, so they build it
+  generate-cv:
+    if: github.event_name == 'push'
+    uses: ./.github/workflows/generate-cv.yml
+
+  ats-score:
+    runs-on: ubuntu-latest
+    needs: [generate-cv]
+    if: >-
+      !cancelled()
+      && (needs.generate-cv.result == 'success' || needs.generate-cv.result == 'skipped')
+      && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success')
+    permissions:
+      contents: write # to edit the release notes
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Find release
+        id: release
+        if: github.event_name != 'push'
+        env:
+          INPUT_TAG: ${{ inputs.tag }}
+          RUN_STARTED_AT: ${{ github.event.workflow_run.run_started_at }}
+        run: |
+          # Without a tag, `gh release view` shows the latest release
+          args=()
+          [[ -z "$INPUT_TAG" ]] || args+=("$INPUT_TAG")
+          release="$(gh release view "${args[@]}" --json tagName,publishedAt)"
+          tag="$(jq -r .tagName <<< "$release")"
+
+          # After a release run, make sure the latest release is the one it created
+          if [[ -n "$RUN_STARTED_AT" ]]; then
+            published_at="$(jq -r .publishedAt <<< "$release")"
+            if (( $(date -d "$published_at" +%s) < $(date -d "$RUN_STARTED_AT" +%s) )); then
+              echo "::error::The latest release (${tag}, published ${published_at}) was not created by the release run that triggered this workflow (started ${RUN_STARTED_AT})"
+              exit 1
+            fi
+          fi
+
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Download CV from the release
+        if: github.event_name != 'push'
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+        run: gh release download "$TAG" --pattern "*-${ATS_CV_LANG}.pdf" --dir build/release
+
+      - name: Download built CV
+        if: github.event_name == 'push'
+        uses: actions/download-artifact@v8
+        with:
+          name: generated-cv
+          path: build/lang/
+
+      - name: Find CV
+        id: cv
+        run: |
+          if [[ "$GITHUB_EVENT_NAME" == push ]]; then
+            dir="build/lang/${ATS_CV_LANG}"
+            pattern="*.pdf"
+          else
+            dir="build/release"
+            pattern="*-${ATS_CV_LANG}.pdf"
+          fi
+          mapfile -t files < <(find "$dir" -maxdepth 1 -name "$pattern" 2> /dev/null)
+          if (( ${#files[@]} != 1 )); then
+            echo "::error::Expected one '${pattern}' file in ${dir}, found ${#files[@]}"
+            exit 1
+          fi
+          echo "path=${files[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Score CV
+        id: ats
+        uses: ./.github/actions/ats-score
+        with:
+          cv-file: ${{ steps.cv.outputs.path }}
+
+      - name: Add ATS score to the summary
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          CV_FILE: ${{ steps.cv.outputs.path }}
+          REPORT_FILE: ${{ steps.ats.outputs.report-file }}
+          PARSER_SCORE: ${{ steps.ats.outputs.parser-score }}
+          PARSER_GRADE: ${{ steps.ats.outputs.parser-grade }}
+          CONTENT_SCORE: ${{ steps.ats.outputs.content-score }}
+        run: |
+          repo_url="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}"
+          if [[ -n "$TAG" ]]; then
+            source="from release [\`${TAG}\`](${repo_url}/releases/tag/${TAG})"
+          else
+            source="built from \`${GITHUB_REF_NAME}\` at [\`${GITHUB_SHA::7}\`](${repo_url}/commit/${GITHUB_SHA})"
+          fi
+          {
+            echo "## ATS score"
+            echo
+            echo "Scores of \`$(basename "$CV_FILE")\` ${source}."
+            echo
+            cat "$REPORT_FILE"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          echo "::notice title=ATS score::resume-parser-ats ${PARSER_SCORE}/100 (${PARSER_GRADE}), ats-check ${CONTENT_SCORE}/100"
+
+      - name: Add ATS score to the release notes
+        if: github.event_name != 'push'
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+          CV_FILE: ${{ steps.cv.outputs.path }}
+          REPORT_FILE: ${{ steps.ats.outputs.report-file }}
+        run: |
+          section="$RUNNER_TEMP/ats-section.md"
+          {
+            echo "<!-- ats-score:start -->"
+            echo
+            echo "## ATS score"
+            echo
+            echo "Scores of \`$(basename "$CV_FILE")\`, checked automatically after the release by two free ATS checkers. Only the English CV is checked: both checkers only recognize English section names and action verbs."
+            echo
+            cat "$REPORT_FILE"
+            echo
+            echo "<!-- ats-score:end -->"
+          } > "$section"
+
+          # Replace the section between the markers (from the release workflow or a previous run), or append it
+          gh release view "$TAG" --json body --jq .body > "$RUNNER_TEMP/body.md"
+          if grep -q '<!-- ats-score:start -->' "$RUNNER_TEMP/body.md"; then
+            awk -v section="$section" '
+              /<!-- ats-score:start -->/ { while ((getline line < section) > 0) print line; skip = 1; next }
+              /<!-- ats-score:end -->/ { skip = 0; next }
+              !skip
+            ' "$RUNNER_TEMP/body.md" > "$RUNNER_TEMP/new-body.md"
+          else
+            { cat "$RUNNER_TEMP/body.md"; echo; echo; cat "$section"; } > "$RUNNER_TEMP/new-body.md"
+          fi
+          gh release edit "$TAG" --notes-file "$RUNNER_TEMP/new-body.md"

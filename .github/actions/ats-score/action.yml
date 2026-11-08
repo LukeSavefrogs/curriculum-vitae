@@ -1,0 +1,43 @@
+name: ATS score
+description: >-
+  Scores a CV PDF with two free, offline ATS checkers (resume-parser-ats and
+  ats-check) and writes a Markdown report. Low scores don't fail the step;
+  errors do.
+
+inputs:
+  cv-file:
+    description: Path to the CV PDF to score
+    required: true
+
+outputs:
+  parser-score:
+    description: resume-parser-ats score (0-100)
+    value: ${{ steps.score.outputs.parser-score }}
+  parser-grade:
+    description: resume-parser-ats grade (A+ to F)
+    value: ${{ steps.score.outputs.parser-grade }}
+  content-score:
+    description: ats-check score (0-100)
+    value: ${{ steps.score.outputs.content-score }}
+  report-file:
+    description: Path to the Markdown report
+    value: ${{ steps.score.outputs.report-file }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Node.js
+      uses: actions/setup-node@v7
+      with:
+        node-version: lts/*
+
+    - name: Install ATS checkers
+      shell: bash
+      run: npm ci --prefix "$GITHUB_ACTION_PATH" --ignore-scripts --no-audit --no-fund
+
+    - name: Score CV
+      id: score
+      shell: bash
+      env:
+        ATS_CV_FILE: ${{ inputs.cv-file }}
+      run: node "$GITHUB_ACTION_PATH/ats-score.mjs" "$ATS_CV_FILE" --report "$RUNNER_TEMP/ats-score.md"
