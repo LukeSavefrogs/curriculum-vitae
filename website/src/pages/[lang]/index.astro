@@ -1,0 +1,82 @@
+---
+import Entry from "../../components/Entry.astro";
+import Base from "../../layouts/Base.astro";
+import { getCv, inline, isOneLine, labels, languages, pdfUrl, sectionTitle, socialUrl, url } from "../../lib/cv";
+
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const cv = getCv(lang);
+const text = labels(lang);
+
+const description = Object.values(cv.sections)
+  .flat()
+  .find((entry) => typeof entry === "string");
+const alternates = languages.map((language) => ({
+  lang: language,
+  href: new URL(url(`${language}/`), Astro.site ?? Astro.url).href,
+}));
+---
+
+<Base lang={lang} title={`${cv.name} – Curriculum Vitae`} description={description} alternates={alternates}>
+  <main>
+    <nav class="top">
+      <ul class="inline-list">
+        {
+          languages.map((language) => (
+            <li>
+              <a
+                href={url(`${language}/`)}
+                hreflang={language}
+                lang={language}
+                title={labels(language).language}
+                aria-current={language === lang ? "page" : undefined}
+              >
+                {language.toUpperCase()}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a href={pdfUrl(cv, lang)}>{text.pdf}</a>
+    </nav>
+
+    <header>
+      <h1>{cv.name}</h1>
+      <ul class="inline-list contact">
+        {cv.location && <li>{cv.location}</li>}
+        {cv.email && <li><a href={`mailto:${cv.email}`}>{cv.email}</a></li>}
+        {cv.phone && <li><a href={`tel:${cv.phone.replace(/[^+\d]/g, "")}`}>{cv.phone.replaceAll("-", " ")}</a></li>}
+        {cv.website && <li><a href={cv.website}>{cv.website.replace(/^https?:\/\//, "")}</a></li>}
+        {
+          cv.social_networks?.map(({ network, username }) => {
+            const href = socialUrl(network, username);
+            return <li>{href ? <a href={href}>{network}</a> : `${network}: ${username}`}</li>;
+          })
+        }
+      </ul>
+    </header>
+
+    {
+      Object.entries(cv.sections).map(([key, entries]) => (
+        <section>
+          <h2>{sectionTitle(key)}</h2>
+          {entries.every(isOneLine) ? (
+            <dl class="one-line">
+              {entries.map((entry) => (
+                <>
+                  <dt set:html={inline(entry.label)} />
+                  <dd set:html={inline(entry.details)} />
+                </>
+              ))}
+            </dl>
+          ) : (
+            entries.map((entry) => <Entry entry={entry} lang={lang} />)
+          )}
+        </section>
+      ))
+    }
+  </main>
+</Base>

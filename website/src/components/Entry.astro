@@ -1,0 +1,51 @@
+---
+import { type Entry, dateRange, inline, labels } from "../lib/cv";
+
+interface Props {
+  entry: Entry;
+  lang: string;
+}
+
+const { entry, lang } = Astro.props;
+const fields = typeof entry === "string" ? undefined : entry;
+
+const title = fields && (fields.position ?? fields.institution ?? fields.name ?? fields.title ?? fields.bullet);
+const subtitle =
+  fields &&
+  (fields.company ??
+    ([fields.degree, fields.area].filter(Boolean).join(", ") || undefined) ??
+    fields.authors?.join(", "));
+const date = fields ? dateRange(fields, lang) : "";
+---
+
+{
+  fields === undefined ? (
+    <p set:html={inline(entry as string)} />
+  ) : (
+    <article class="entry">
+      <div class="entry-head">
+        <div>
+          <h3>
+            <span set:html={inline(title)} />
+            {subtitle && <span class="subtitle">, <Fragment set:html={inline(subtitle)} /></span>}
+          </h3>
+          {fields.summary && <p class="summary" set:html={inline(fields.summary)} />}
+          {fields.grade && <p class="summary">{labels(lang).grade}: {fields.grade}</p>}
+        </div>
+        {(date || fields.location) && (
+          <p class="meta">
+            {date && <span>{date}</span>}
+            {fields.location && <span>{fields.location}</span>}
+          </p>
+        )}
+      </div>
+      {fields.highlights && fields.highlights.length > 0 && (
+        <ul>
+          {fields.highlights.map((highlight) => (
+            <li set:html={inline(highlight)} />
+          ))}
+        </ul>
+      )}
+    </article>
+  )
+}
