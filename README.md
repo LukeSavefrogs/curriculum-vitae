@@ -22,6 +22,8 @@ It is built and deployed to GitHub Pages by the [release workflow](.github/workf
 
 The top-right corner of every PDF shows the CV build ID and a link to the [latest release](https://github.com/LukeSavefrogs/curriculum-vitae/releases/latest), so it's always possible to tell exactly which CV was sent and whether a newer one exists.
 
+The same build ID is shown in the footer of the [website](#website).
+
 The build ID has the format `<version>#<commit>`:
 
 - `<version>` is the release tag (e.g. `cv-2025.01.31-10.00.00`) for CVs built by the [release workflow](.github/workflows/release-cv.yml), or `dev` for any other build. It can be overridden with the `CV_VERSION` environment variable (e.g. `CV_VERSION=test bash ./scripts/build_cv.sh`);
