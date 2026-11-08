@@ -10,12 +10,28 @@ env:
   GITHUB_REPOSITORY_URL: "${{ github.server_url }}/${{ github.repository }}"
 
 jobs:
+  # Computed before generating the CV so that the version printed on the PDF matches the release tag
+  version:
+    runs-on: ubuntu-latest
+    outputs:
+      cv-version: ${{ steps.version.outputs.CV_VERSION }}
+    steps:
+      - name: Generate version tag
+        id: version
+        shell: bash
+        run: |
+          cv_version="$(date +'cv-%Y.%m.%d-%H.%M.%S')"
+          echo "CV_VERSION=$cv_version" >> $GITHUB_OUTPUT
+
   generate-cv:
+    needs: [version]
     uses: ./.github/workflows/generate-cv.yml
+    with:
+      cv-version: ${{ needs.version.outputs.cv-version }}
 
   create-release:
     runs-on: ubuntu-latest
-    needs: [generate-cv]
+    needs: [version, generate-cv]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -37,16 +53,13 @@ jobs:
             cp "$file" "build/release/${new_filename}"
           done
 
-      - name: Generate version tag
+      - name: Prepare release notes
         id: version
         shell: bash
+        env:
+          CV_VERSION: ${{ needs.version.outputs.cv-version }}
         run: |
-          cv_date=$(date +'%Y.%m.%d')
-          cv_time=$(date +'%H.%M.%S')
-          cv_version="cv-${cv_date}-${cv_time}"
-
-          echo "CV_DATE=$cv_date" >> $GITHUB_OUTPUT
-          echo "CV_TIME=$cv_time" >> $GITHUB_OUTPUT
+          cv_version="${CV_VERSION:?Missing CV version}"
           echo "CV_VERSION=$cv_version" >> $GITHUB_OUTPUT
 
           (

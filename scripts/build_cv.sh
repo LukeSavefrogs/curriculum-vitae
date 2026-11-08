@@ -20,10 +20,26 @@ declare WATCH_MODE=false
 
 declare -r COLS_PER_ROW_RATIO=2  # Number of columns per row to decide tmux layout
 
+# Repository whose latest release is linked in the CV top note.
+# On GitHub Actions the repository the workflow runs in is used (forks link to themselves).
+declare -r REPOSITORY_URL="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY:-LukeSavefrogs/curriculum-vitae}"
+declare -r LATEST_RELEASE_URL="${REPOSITORY_URL}/releases/latest"
+
+# Localized labels of the top note (top-right corner of the PDF). Unknown languages fall back to English.
+declare -rA TOP_NOTE_VERSION_LABEL=(
+    [en]="Version"
+    [it]="Versione"
+)
+declare -rA TOP_NOTE_DOWNLOAD_LABEL=(
+    [en]="Download the latest version"
+    [it]="Scarica l'ultima versione"
+)
+
 main () {
     local output_dir="build"
     local is_tmux_available=false force_tmux_disabled=false
     local -a command_prefix=()
+    local build_id top_note
 
     # From this excellent StackOverflow answer: https://stackoverflow.com/a/14203146/8965861
     OPTIND=1;
@@ -50,6 +66,11 @@ main () {
                 printf "  -w, --watch          Enable watch mode to monitor changes and rebuild automatically\n"
                 printf "  --no-tmux            Disable tmux usage even if available\n"
                 printf "  -h, --help           Show this help message and exit\n"
+                printf "\n"
+                printf "Environment variables:\n"
+                printf "  CV_VERSION           Version shown in the top-right corner of the CV, followed by\n"
+                printf "                       the short commit SHA (e.g. 'cv-2025.01.31-10.00.00#a1b2c3d').\n"
+                printf "                       Set by the release workflow to the release tag (default: 'dev')\n"
                 return 0;
             ;;
             --)
@@ -85,16 +106,23 @@ main () {
         command_prefix=(tmux_send_command "$TMUX_SESSION_NAME")
     fi
 
-    log_info "Starting the build process (project.root='${PROJECT_ROOT}')"
+    build_id="$(get_build_id)"
+    log_info "Starting the build process (project.root='${PROJECT_ROOT}', build.id='${build_id}')"
 
     for file in cv-*.yaml; do
         lang="$(grep -Po '(?<=cv-)([-_a-z]{2})(?=\.yaml)' <<< "$file")"
+
+        # The build ID is wrapped in backticks (Typst raw text) because RenderCV would otherwise
+        # interpret "#<letter>..." as a Typst command and fail to compile the PDF.
+        top_note="*${TOP_NOTE_VERSION_LABEL[$lang]:-${TOP_NOTE_VERSION_LABEL[en]}} \`${build_id}\`"
+        top_note+=" · [${TOP_NOTE_DOWNLOAD_LABEL[$lang]:-${TOP_NOTE_DOWNLOAD_LABEL[en]}}](${LATEST_RELEASE_URL})*"
 
         log_debug "Rendering CV for language '${lang}' from file '${file}'"
         "${command_prefix[@]}" uv run rendercv render "$file" \
             --output-folder "${output_dir}/${lang}/" \
             --design "${PROJECT_ROOT}/config/design.yaml" \
             --settings "${PROJECT_ROOT}/config/rendercv.settings.yaml" \
+            --design.templates.top_note "$top_note" \
             "$@"
         log_info "Successfully rendered CV for language '${lang}'"
     done
@@ -118,6 +146,24 @@ log_info() { _log "INFO" "$@"; }
 log_warn() { _log "WARN" "$@"; }
 log_error() { _log "ERROR" "$@"; }
 
+# Prints the identifier of this build: "<CV_VERSION>#<short commit SHA>[-dirty]".
+#
+# In the release workflow CV_VERSION is the release tag, so the ID printed on the CV
+# points to both the GitHub release and the exact commit it was generated from.
+get_build_id() {
+    local version="${CV_VERSION:-dev}"
+    local commit
+
+    if ! commit="$(git -C "$PROJECT_ROOT" rev-parse --short=7 HEAD 2>/dev/null)"; then
+        log_warn "Could not determine the current commit (not a git repository?)" >&2
+        commit="unknown"
+    elif [[ -n "$(git -C "$PROJECT_ROOT" status --porcelain --untracked-files=no 2>/dev/null)" ]]; then
+        commit+="-dirty"
+    fi
+
+    printf '%s#%s\n' "$version" "$commit"
+}
+
 tmux_create_session() {
     tmux new-session -d -s "${1?Missing mandatory tmux session}"
 }
@@ -125,7 +171,12 @@ tmux_create_session() {
 tmux_send_command() {
     local session="${1?Missing mandatory tmux session}"
     shift
-    local command="${@?Missing mandatory tmux command}"
+    (( $# > 0 )) || { log_error "Missing mandatory tmux command"; return 1; }
+
+    # Quote each argument so that values containing spaces or special characters
+    # (e.g. the top note) reach the command unchanged
+    local command
+    printf -v command '%q ' "$@"
 
     tmux split-window -h -t "$session"
     tmux send-keys -t "$session" "$command" C-m
