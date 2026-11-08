@@ -6,6 +6,18 @@
 2. Install dependencies: `uv sync`
 3. Generate CV: `bash ./scripts/build_cv.sh`
 
+## Website
+
+The [`website/`](website/) folder contains a minimal [Astro](https://astro.build/) site that renders the same `cv-*.yaml` files (one page per language).
+
+```bash
+cd website
+npm ci
+npm run dev    # or: npm run build
+```
+
+It is built and deployed to GitHub Pages by the [release workflow](.github/workflows/release-cv.yml), after the release is created, so its "Download PDF" link always points to the latest CV.
+
 ## Versioning
 
 The top-right corner of every PDF shows the CV build ID and a link to the [latest release](https://github.com/LukeSavefrogs/curriculum-vitae/releases/latest), so it's always possible to tell exactly which CV was sent and whether a newer one exists.
