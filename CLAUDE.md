@@ -92,7 +92,7 @@ cd website && npm ci && npm run dev        # or: npm run build / npm run preview
 - Workflows:
   - `generate-cv.yml` builds the CV and uploads it as the `generated-cv` artifact.
   - `release-cv.yml` is manual. Its jobs are `version`, `generate-cv`, `create-release` and `gh-pages`.
-  - `ats-score.yml` runs after each release (or by hand, with an optional `tag`). See "ATS score" below.
+  - `ats-score.yml` runs after each release, by hand (with an optional `tag`), and on pushes that change the CV. See "ATS score" below.
 - ReteInformaticaLavoro upload:
   - `publish-reteinformaticalavoro.yml` is a separate workflow so it gets its own run history and badge.
   - It's triggered by `workflow_run`, which only fires from workflows on the default branch, or by a manual run, which builds the CV itself.
@@ -106,11 +106,14 @@ cd website && npm ci && npm run dev        # or: npm run build / npm run preview
 
 ## ATS score
 
-- `ats-score.yml` scores the `en` PDF (`ATS_CV_LANG`) downloaded from the release assets with `.github/actions/ats-score/`, a self-contained Node project (`package-lock.json`) that runs two free, offline checkers:
+- `ats-score.yml` scores the `en` PDF (`ATS_CV_LANG`) with `.github/actions/ats-score/`, a self-contained Node project (`package-lock.json`) that runs two free, offline checkers:
   - `resume-parser-ats` (npm) parses the PDF like an ATS: score, grade and parsing issues.
   - `ats-check` scores the text extracted with `pdf-parse`. It isn't on npm, so it's a GitHub dependency pinned to a tag.
 - Both checkers only know English section names and action verbs, so the `it` CV isn't checked (it scored 46/D and 55 only because of that).
-- The report replaces the text between `<!-- ats-score:start -->` and `<!-- ats-score:end -->` in the release notes. `release-cv.yml` puts a placeholder there; older releases get the section appended. Reruns update it in place.
+- Triggers and where the PDF comes from:
+  - After a release, or by hand: the release asset.
+  - On push (any branch, not tags) of `cv-*.yaml`, `config/**`, `scripts/build_cv.sh` or the check's own files: the `generate-cv` job of the same run builds it.
+- The scores always go to the run summary. For releases only, the report also replaces the text between `<!-- ats-score:start -->` and `<!-- ats-score:end -->` in the release notes. `release-cv.yml` puts a placeholder there; older releases get the section appended. Reruns update it in place.
 - A low score never fails the workflow; errors do.
 - To find the release created by the triggering run, it compares the latest release's `publishedAt` with the run's `run_started_at`. Don't use `createdAt`: for releases it's the date of the commit.
 - Known findings (en, Nov 2026): 84/100 (A-) and 92/100. The header icons end up in the PDF text as private-use characters, so the contact details are merged into one line and the phone number isn't detected.

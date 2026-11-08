@@ -42,9 +42,15 @@ A low score doesn't fail the step. An error does: unreadable PDF, no text in it,
 
 In this repository it is run by the [`ats-score.yml`](../../workflows/ats-score.yml) workflow, which:
 
-- runs after every successful **Release new CV version** run, and can also be started by hand for any release (the `tag` input; the latest release by default);
-- downloads the English PDF (`ATS_CV_LANG`) from the release assets, so it scores exactly the file that was released;
-- replaces the placeholder between `<!-- ats-score:start -->` and `<!-- ats-score:end -->` in the release notes with the report (or appends it to releases that don't have one), so running it again updates the score instead of adding another one.
+- runs:
+  - after every successful **Release new CV version** run;
+  - by hand, for any release (the `tag` input; the latest release by default);
+  - on every push, to any branch, that changes the CV (`cv-*.yaml`), its layout (`config/**`, `scripts/build_cv.sh`) or the check itself;
+- scores the English PDF (`ATS_CV_LANG`):
+  - for releases, downloaded from the release assets, so it scores exactly the file that was released;
+  - for pushes, built by the `generate-cv` job of the same run;
+- writes the scores to the run summary, and as a notice;
+- for releases only, replaces the placeholder between `<!-- ats-score:start -->` and `<!-- ats-score:end -->` in the release notes with the report (or appends it to releases that don't have one), so running it again updates the score instead of adding another one.
 
 ## Dependencies
 

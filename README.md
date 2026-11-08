@@ -33,7 +33,7 @@ The build ID has the format `<version>#<commit>`:
 
 [![Check CV ATS score](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/ats-score.yml/badge.svg)](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/ats-score.yml)
 
-After every release, the English PDF is checked with two free ATS checkers and their scores are added to the release notes (_details in the [action](.github/actions/ats-score/README.md)_).
+The English PDF is checked with two free ATS checkers after every release, and on every push that changes the CV or its layout. The scores are shown in the run summary and, for releases, added to the release notes (_details in the [action](.github/actions/ats-score/README.md)_).
 
 ## Publishing to job boards
 
