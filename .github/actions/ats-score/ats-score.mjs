@@ -4,8 +4,8 @@
  *
  * - resume-parser-ats: parses the PDF the way an ATS does (name, contact details, sections)
  *   and grades how much of it could be extracted;
- * - ats-check: scores the extracted text (contact info, section names, formatting, action
- *   verbs, numbers, length, dates).
+ * - ats-check: scores the text resume-parser-ats extracted (contact info, section names,
+ *   formatting, action verbs, numbers, length, dates).
  *
  * Usage: node ats-score.mjs <cv.pdf> [--report <report.md>]
  *
@@ -20,8 +20,6 @@ import { analyze as checkContent } from "ats-check";
 
 const require = createRequire(import.meta.url);
 const { analyzeResume, parseResumeAsync } = require("resume-parser-ats");
-// The package entry point runs a self-test when it thinks it is the main module, so load the library itself
-const pdfParse = require("pdf-parse/lib/pdf-parse.js");
 
 const pkg = JSON.parse(readFileSync(new URL("./package.json", import.meta.url), "utf8"));
 
@@ -87,19 +85,16 @@ if (positionals.length !== 1) {
   process.exit(2);
 }
 const [cvFile] = positionals;
-
-let text;
-try {
-  ({ text } = await pdfParse(readFileSync(cvFile)));
-} catch (error) {
-  fail(`Cannot read text from ${cvFile}: ${error.message}`);
-}
-if (!text.trim()) fail(`No text could be extracted from ${cvFile}`);
+// resume-parser-ats reads any other file as plain text
+if (!cvFile.toLowerCase().endsWith(".pdf")) fail(`Not a PDF: ${cvFile}`);
 
 const parsed = await parseResumeAsync({ filePath: cvFile });
 if (!parsed.success) fail(`resume-parser-ats could not parse ${cvFile}: ${parsed.metadata.warnings.join("; ")}`);
 const analysis = analyzeResume({ filePath: cvFile, parsedResume: parsed.data, strictness: "moderate" });
 if (!analysis.success) fail(`resume-parser-ats could not analyze ${cvFile}`);
+
+// The text of the PDF, one item per non-empty line
+const text = parsed.data.rawTextItems.map((item) => item.text).join("\n");
 
 const parser = analysis.data;
 const content = checkContent(text);
