@@ -41,8 +41,8 @@ const REPOSITORY_URL = "https://github.com/LukeSavefrogs/curriculum-vitae";
 export const DEFAULT_LANGUAGE = "en";
 
 const LABELS = {
-  en: { language: "English", present: "present", grade: "Grade", pdf: "Download PDF" },
-  it: { language: "Italiano", present: "presente", grade: "Voto", pdf: "Scarica PDF" },
+  en: { language: "English", present: "present", grade: "Grade", pdf: "Download PDF", version: "Version" },
+  it: { language: "Italiano", present: "presente", grade: "Voto", pdf: "Scarica PDF", version: "Versione" },
 } as const;
 
 export function labels(lang: string) {

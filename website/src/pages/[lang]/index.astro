@@ -1,6 +1,7 @@
 ---
 import Entry from "../../components/Entry.astro";
 import Base from "../../layouts/Base.astro";
+import { buildId } from "../../lib/build";
 import { getCv, inline, isOneLine, labels, languages, pdfUrl, sectionTitle, socialUrl, url } from "../../lib/cv";
 
 export function getStaticPaths() {
@@ -79,4 +80,8 @@ const alternates = languages.map((language) => ({
       ))
     }
   </main>
+
+  <footer class="site-footer">
+    <p>{text.version} <code>{buildId}</code></p>
+  </footer>
 </Base>
