@@ -29,6 +29,12 @@ The build ID has the format `<version>#<commit>`:
 - `<version>` is the release tag (e.g. `cv-2025.01.31-10.00.00`) for CVs built by the [release workflow](.github/workflows/release-cv.yml), or `dev` for any other build. It can be overridden with the `CV_VERSION` environment variable (e.g. `CV_VERSION=test bash ./scripts/build_cv.sh`);
 - `<commit>` is the short SHA of the commit the CV was generated from, with a `-dirty` suffix if tracked files had uncommitted changes.
 
+## ATS score
+
+[![Check CV ATS score](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/ats-score.yml/badge.svg)](https://github.com/LukeSavefrogs/curriculum-vitae/actions/workflows/ats-score.yml)
+
+After every release, the English PDF is checked with two free ATS checkers and their scores are added to the release notes (_details in the [action](.github/actions/ats-score/README.md)_).
+
 ## Publishing to job boards
 
 | Job board | Link | Deploy status |
