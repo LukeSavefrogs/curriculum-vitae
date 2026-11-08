@@ -108,7 +108,8 @@ cd website && npm ci && npm run dev        # or: npm run build / npm run preview
 
 - `ats-score.yml` scores the `en` PDF (`ATS_CV_LANG`) with `.github/actions/ats-score/`, a self-contained Node project (`package-lock.json`) that runs two free, offline checkers:
   - `resume-parser-ats` (npm) parses the PDF like an ATS: score, grade and parsing issues.
-  - `ats-check` scores the text extracted with `pdf-parse`. It isn't on npm, so it's a GitHub dependency pinned to a tag.
+  - `ats-check` scores the text `resume-parser-ats` extracted (`rawTextItems`, one item per non-empty line). It isn't on npm, so it's a GitHub dependency pinned to a tag.
+  - There's no direct `pdf-parse` dependency: `resume-parser-ats` uses `pdf-parse` 1.x internally, and v2 removed the file the script used to load. The script rejects non-`.pdf` paths, because `resume-parser-ats` reads any other file as plain text.
 - Both checkers only know English section names and action verbs, so the `it` CV isn't checked (it scored 46/D and 55 only because of that).
 - Triggers and where the PDF comes from:
   - After a release, or by hand: the release asset.

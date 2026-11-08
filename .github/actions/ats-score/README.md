@@ -7,7 +7,7 @@ Composite action that scores a CV PDF with two free ATS checkers, both running o
 | [resume-parser-ats](https://www.npmjs.com/package/resume-parser-ats) | Parses the PDF the way an ATS does and grades what it could extract: name, email, phone, location, sections (`EXPERIENCE`, `EDUCATION`, `SKILLS`, …). Gives a score from 0 to 100, a grade (A+ to F) and the parsing issues it found. |
 | [ats-check](https://github.com/hugounoclaw/ats-check) | Scores the text extracted from the PDF in seven categories: contact info, standard sections, parse-friendly formatting, action verbs, quantified impact, length, dates. Gives a score from 0 to 100 and a list of tips. |
 
-[`ats-score.mjs`](ats-score.mjs) extracts the text with `pdf-parse` (the same library `resume-parser-ats` uses), runs both checkers and writes a Markdown report: a table with both scores, plus the issues and the per-category scores in a collapsible "Details" block.
+[`ats-score.mjs`](ats-score.mjs) runs `resume-parser-ats` on the PDF, passes the text it extracted to `ats-check`, and writes a Markdown report: a table with both scores, plus the issues and the per-category scores in a collapsible "Details" block.
 
 A low score doesn't fail the step. An error does: unreadable PDF, no text in it, checker crash.
 
