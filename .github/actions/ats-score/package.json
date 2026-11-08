@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "ats-check": "github:hugounoclaw/ats-check#v1.0.0",
-    "pdf-parse": "1.1.4",
+    "pdf-parse": "2.4.5",
     "resume-parser-ats": "1.2.3"
   }
 }
