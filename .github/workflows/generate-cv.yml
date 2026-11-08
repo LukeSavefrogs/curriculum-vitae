@@ -2,7 +2,19 @@ name: Generate CV artifacts
 
 on:
   workflow_dispatch:
+    inputs:
+      cv-version:
+        description: Version shown in the top-right corner of the CV (followed by the commit SHA). Defaults to 'dev'.
+        type: string
+        required: false
+        default: ""
   workflow_call:
+    inputs:
+      cv-version:
+        description: Version shown in the top-right corner of the CV (followed by the commit SHA). Defaults to 'dev'.
+        type: string
+        required: false
+        default: ""
 
 jobs:
   build:
@@ -27,6 +39,8 @@ jobs:
         run: uv sync --locked --all-extras --dev
 
       - name: Generate CV
+        env:
+          CV_VERSION: ${{ inputs.cv-version }}
         run: |
           ./scripts/build_cv.sh
 
