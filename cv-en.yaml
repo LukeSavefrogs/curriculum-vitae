@@ -69,7 +69,7 @@ cv:
           - Monitored and managed production and non-production WAS cells, LDAP and MQ servers
           - Basic WAS-related Linux server administration tasks, such as user management, disk space monitoring and
             cleanup
-          - Responded to tickets and incidents, providing quick resolution to minimize downtime
+          - Resolved tickets and incidents quickly to minimize downtime
           - Performed routine maintenance tasks, including application deployments, server restarts, and log
             analysis/troubleshooting
           - Developed and maintained scripts (Bash, Jython, Perl) to automate common tasks, improving efficiency and
@@ -87,7 +87,7 @@ cv:
         highlights:
           - Worked on 8-hour shifts (including nights and weekends) to ensure 24/7 coverage
           - Monitored and managed production and non-production DB2 databases
-          - Execution of DML/DDL scripts
+          - Executed DML/DDL scripts
 
       - company: Re-Edit S.r.l.
         position: IBM z/TPF Mainframe operator
@@ -100,7 +100,7 @@ cv:
           - Monitored and managed the IBM z/TPF mainframe system, ensuring its smooth operation and performance
           - Handled system alerts, performed routine maintenance tasks (recoup, backup on tape), and responded to
             incidents to minimize downtime
-          - Build, deploy and rollback of the seat reservation application on production and no-production environments
+          - Built, deployed and rolled back the seat reservation application on production and no-production environments
           - Handling of system backups (on multiple operative systems) via Tivoli Storage Manager (TSM)
 
       - company: Team Office S.r.l.

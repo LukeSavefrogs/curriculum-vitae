@@ -117,7 +117,13 @@ cd website && npm ci && npm run dev        # or: npm run build / npm run preview
 - The scores always go to the run summary. For releases only, the report also replaces the text between `<!-- ats-score:start -->` and `<!-- ats-score:end -->` in the release notes. `release-cv.yml` puts a placeholder there; older releases get the section appended. Reruns update it in place.
 - A low score never fails the workflow; errors do.
 - To find the release created by the triggering run, it compares the latest release's `publishedAt` with the run's `run_started_at`. Don't use `createdAt`: for releases it's the date of the commit.
-- Known findings (en, Nov 2026): 84/100 (A-) and 92/100. The header icons end up in the PDF text as private-use characters, so the contact details are merged into one line and the phone number isn't detected.
+- Known findings (en, Nov 2026): 84/100 (A-) and 94/100. The header icons end up in the PDF text as private-use characters, so the contact details are merged into one line and the phone number isn't detected.
+- Score improvements tried (Nov 2026):
+  - Applied: bullets that start with a verb from `ats-check`'s list ("Executed", "Built", "Resolved") raised `ats-check` from 92 to 94.
+  - Planned as a separate change: a two-line contact header (location and email, then phone and profiles) raises `resume-parser-ats` to 93 (A+). It needs an `engineeringclassic/Header.j2.typ` override next to the CV YAML that splits `cv._connections`.
+  - `show_icons: false` alone makes it worse: without the icons the contact details are glued together in the PDF text.
+  - Declined: `ats-check` penalizes every non-ASCII character. A `-` bullet and `-` instead of `--` (`–`) in `date_range`, the entry templates and the footer get it to 100, but real ATS parsers read `•` and `–` fine.
+  - Declined: the last 7 points of `resume-parser-ats` need a US-style `City, ST` location on a line without the email.
 
 ## Claude cloud environment
 
