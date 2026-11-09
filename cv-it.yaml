@@ -25,22 +25,22 @@ cv:
         location: Roma, Italia
         summary: Sviluppatore Java per Unicredit
         highlights:
-          - Manutenzione, modernizzazione e sviluppo di nuove funzionalità per complesse applicazioni interne legacy
+          - Mantenuto, modernizzato e sviluppato nuove funzionalità per complesse applicazioni interne legacy
             Java EE 8, utilizzate per automatizzare il provisioning dei server, le attività di configurazione, il
             polling di health-check e altre operazioni IT; tra le tecnologie impiegate c'erano CDI, JPA e JSF/Vaadin,
             con l'applicazione distribuita su IBM WebSphere Liberty
-          - Sviluppo e manutenzione di script di automazione in Bash, Python e Perl per supportare varie attività
+          - Sviluppato e mantenuto script di automazione in Bash, Python e Perl per supportare varie attività
             operative IT
-          - Sviluppo e manutenzione di script Jython 2.1 per automatizzare attività di amministrazione di WebSphere
+          - Sviluppato e mantenuto script Jython 2.1 per automatizzare attività di amministrazione di WebSphere
             Application Server, portando alla creazione di
             [jython21-backport](https://github.com/LukeSavefrogs/jython21-backport) per migliorare l'esperienza di
             sviluppo
-          - Utilizzo di database Oracle, inclusi la scrittura e l'ottimizzazione di query SQL, stored procedure e
+          - Utilizzato database Oracle, inclusi la scrittura e l'ottimizzazione di query SQL, stored procedure e
             trigger per supportare le funzionalità dell'applicazione
-          - Integrazione di Ansible Automation Platform con strumenti di automazione esistenti per semplificare i
+          - Integrato Ansible Automation Platform con strumenti di automazione esistenti per semplificare i
             processi operativi IT
-          - Manutenzione di strumenti di build interni basati su Apache Maven, Jenkins e GitHub Actions
-          - Utilizzo di Git per il versionamento e GitHub Issues/GitHub Projects per la gestione delle attività e la
+          - Mantenuto strumenti di build interni basati su Apache Maven, Jenkins e GitHub Actions
+          - Utilizzato Git per il versionamento e GitHub Issues/GitHub Projects per la gestione delle attività e la
             collaborazione del team
 
       - company: Re-Edit S.r.l.
@@ -60,9 +60,9 @@ cv:
         location: Roma, Italia
         summary: Business Monitoring per Generali
         highlights:
-          - Utilizzo di Microfocus Application Performance Management (APM) per monitorare processi aziendali e
+          - Utilizzato Microfocus Application Performance Management (APM) per monitorare processi aziendali e
             applicazioni
-          - Manutenzione e aggiornamento di script di monitoraggio per garantire una raccolta e un'analisi accurata dei
+          - Mantenuto e aggiornato script di monitoraggio per garantire una raccolta e un'analisi accurata dei
             dati
 
       - company: Re-Edit S.r.l.
@@ -72,18 +72,18 @@ cv:
         location: Roma, Italia
         summary: Operatore WebSphere Application Server per Trenitalia
         highlights:
-          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
-          - Monitoraggio e gestione di celle WAS, server LDAP e MQ di produzione e non produzione
+          - Lavorato su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
+          - Monitorato e gestito celle WAS, server LDAP e MQ di produzione e non produzione
           - Attività di base di amministrazione Linux relative a WAS, quali gestione utenti, monitoraggio e gestione
             dello spazio su disco
-          - Gestione di ticket e incident, fornendo soluzioni rapide per ridurre al minimo i tempi di inattività
-          - Esecuzione di attività di manutenzione ordinaria, tra cui deployment applicativi, riavvii dei server e
+          - Risolto rapidamente ticket e incident per ridurre al minimo i tempi di inattività
+          - Eseguito attività di manutenzione ordinaria, tra cui deployment applicativi, riavvii dei server e
             analisi/risoluzione dei problemi dai log
-          - Sviluppo e manutenzione di script (Bash, Jython, Perl) per automatizzare attività comuni, migliorando
+          - Sviluppato e mantenuto script (Bash, Jython, Perl) per automatizzare attività comuni, migliorando
             l'efficienza e riducendo gli errori
-          - Sviluppo di uno strumento interno in JavaScript per automatizzare il sistema di ticketing, riducendo il
+          - Sviluppato uno strumento interno in JavaScript per automatizzare il sistema di ticketing, riducendo il
             lavoro manuale
-          - Sviluppo e manutenzione di script Python per automatizzare test end-to-end di applicazioni web, migliorando
+          - Sviluppato e mantenuto script Python per automatizzare test end-to-end di applicazioni web, migliorando
             l'affidabilità e riducendo il carico di testing manuale
 
       - company: Re-Edit S.r.l.
@@ -93,9 +93,9 @@ cv:
         location: Roma, Italia
         summary: Operatore database per Trenitalia
         highlights:
-          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
-          - Monitoraggio e gestione dei database DB2 di produzione e non produzione
-          - Esecuzione di script DML/DDL
+          - Lavorato su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
+          - Monitorato e gestito i database DB2 di produzione e non produzione
+          - Eseguito script DML/DDL
 
       - company: Re-Edit S.r.l.
         position: Operatore mainframe IBM z/TPF
@@ -104,11 +104,11 @@ cv:
         location: Roma, Italia
         summary: Operatore mainframe per il sistema IBM z/TPF di Trenitalia
         highlights:
-          - Lavoro su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
-          - Monitoraggio e gestione del sistema IBM z/TPF, garantendone il regolare funzionamento e le prestazioni
-          - Gestione degli avvisi di sistema, attività di manutenzione ordinaria (recoup, backup su nastro) e risposta a
-            incident per minimizzare i tempi di inattività
-          - Attività di build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e
+          - Lavorato su turni di 8 ore (incluse notti e weekend) per garantire una copertura 24/7
+          - Monitorato e gestito il sistema IBM z/TPF, garantendone il regolare funzionamento e le prestazioni
+          - Gestito gli avvisi di sistema, eseguito attività di manutenzione ordinaria (recoup, backup su nastro) e risposto
+            agli incident per minimizzare i tempi di inattività
+          - Eseguito build, deploy e rollback dell'applicazione di prenotazione posti sugli ambienti di produzione e
             non produzione
           - Gestione dei backup di sistema (su più sistemi operativi) tramite Tivoli Storage Manager (TSM)
 
@@ -119,11 +119,11 @@ cv:
         location: Roma, Italia
         summary: Sviluppatore di applicazioni web interne
         highlights:
-          - Utilizzo di PHP, JavaScript, HTML/CSS e SQL per sviluppare e mantenere l'applicazione web a supporto delle
+          - Utilizzato PHP, JavaScript, HTML/CSS e SQL per sviluppare e mantenere l'applicazione web a supporto delle
             principali operazioni aziendali
-          - Collaborazione con un piccolo team per la raccolta dei requisiti, la progettazione e l'implementazione delle
+          - Collaborato con un piccolo team per la raccolta dei requisiti, la progettazione e l'implementazione delle
             funzionalità
-          - Utilizzo di C# per sviluppare un software ETL per importare i listini prezzi Excel dei fornitori nel
+          - Utilizzato C# per sviluppare un software ETL per importare i listini prezzi Excel dei fornitori nel
             database aziendale e per sincronizzare gli appuntamenti tra il calendario interno e Outlook
           - Attività di base di help desk IT, tra cui risoluzione di problemi hardware e software, supporto agli utenti
             e manutenzione della rete
