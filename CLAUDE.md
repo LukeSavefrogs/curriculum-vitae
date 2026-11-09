@@ -30,6 +30,7 @@ cd website && npm ci && npm run dev        # or: npm run build / npm run preview
 ## Working with the user
 
 - **Plan first** and get the plan approved before changing anything. "Only plan" means: do not commit.
+- **CLAUDE.md:** update it only when a style or core point changes. Never use it to store temporary facts (decisions, roadmaps, scores, findings, …) unless explicitly asked.
 - **Commits:** Conventional Commits (`feat:`, `fix:`, `ci:`, `docs:`, `style:`, `chore(deps):`), with short, focused messages. Reference issues with `Closes #N`.
 - **Branches and PRs:**
   - Work on a branch and don't open a PR unless asked.
@@ -110,14 +111,13 @@ cd website && npm ci && npm run dev        # or: npm run build / npm run preview
   - `resume-parser-ats` (npm) parses the PDF like an ATS: score, grade and parsing issues.
   - `ats-check` scores the text `resume-parser-ats` extracted (`rawTextItems`, one item per non-empty line). It isn't on npm, so it's a GitHub dependency pinned to a tag.
   - There's no direct `pdf-parse` dependency: `resume-parser-ats` uses `pdf-parse` 1.x internally, and v2 removed the file the script used to load. The script rejects non-`.pdf` paths, because `resume-parser-ats` reads any other file as plain text.
-- Both checkers only know English section names and action verbs, so the `it` CV isn't checked (it scored 46/D and 55 only because of that).
+- Both checkers only know English section names and action verbs, so the `it` CV isn't checked.
 - Triggers and where the PDF comes from:
   - After a release, or by hand: the release asset.
   - On push (any branch, not tags) of `cv-*.yaml`, `config/**`, `scripts/build_cv.sh` or the check's own files: the `generate-cv` job of the same run builds it.
 - The scores always go to the run summary. For releases only, the report also replaces the text between `<!-- ats-score:start -->` and `<!-- ats-score:end -->` in the release notes. `release-cv.yml` puts a placeholder there; older releases get the section appended. Reruns update it in place.
 - A low score never fails the workflow; errors do.
 - To find the release created by the triggering run, it compares the latest release's `publishedAt` with the run's `run_started_at`. Don't use `createdAt`: for releases it's the date of the commit.
-- Known findings (en, Nov 2026): 84/100 (A-) and 92/100. The header icons end up in the PDF text as private-use characters, so the contact details are merged into one line and the phone number isn't detected.
 
 ## Claude cloud environment
 
