@@ -12,6 +12,7 @@ on:
       - "cv-*.yaml"
       # The layout changes how ATS parsers read the PDF
       - "config/**"
+      - "engineeringclassic/**"
       - "scripts/build_cv.sh"
       # The check itself, so that checker updates are tested
       - ".github/workflows/ats-score.yml"

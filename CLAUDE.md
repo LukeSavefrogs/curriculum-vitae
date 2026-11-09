@@ -84,7 +84,8 @@ cd website && npm ci && npm run dev        # or: npm run build / npm run preview
 - A `#` followed by a letter in text (e.g. `cv-x#abc1234`) is read as Typst code and the build fails with `unknown variable`. Wrap such text in backticks, which renders it as raw (monospace) text.
 - Uppercase placeholder words in templates are replaced, so keep them out of literal text: `NAME`, `YEAR`, `CURRENT_DATE`, `LAST_UPDATED`, `PAGE_NUMBER`, `TOTAL_PAGES`, …
 - The top note only appears in the PDF and PNG, not in the Markdown or HTML.
-- A template placed next to the YAML (e.g. `markdown/Header.j2.md`) overrides RenderCV's built-in one.
+- A template placed next to the YAML (e.g. `markdown/Header.j2.md`) overrides RenderCV's built-in one. Typst templates go in a folder named after the theme.
+- `engineeringclassic/Header.j2.typ` is a copy of RenderCV's built-in header with the contact details on two lines (location and email, then the rest), so that ATS parsers reading the PDF line by line don't merge the phone number with the email. Keep it in sync with RenderCV's template when RenderCV is updated.
 - The `cv:` section forbids extra keys.
 - Compiling the PDF downloads Typst packages from `packages.typst.org`, so that host must be reachable.
 
@@ -114,7 +115,7 @@ cd website && npm ci && npm run dev        # or: npm run build / npm run preview
 - Both checkers only know English section names and action verbs, so the `it` CV isn't checked.
 - Triggers and where the PDF comes from:
   - After a release, or by hand: the release asset.
-  - On push (any branch, not tags) of `cv-*.yaml`, `config/**`, `scripts/build_cv.sh` or the check's own files: the `generate-cv` job of the same run builds it.
+  - On push (any branch, not tags) of `cv-*.yaml`, `config/**`, `engineeringclassic/**`, `scripts/build_cv.sh` or the check's own files: the `generate-cv` job of the same run builds it.
 - The scores always go to the run summary. For releases only, the report also replaces the text between `<!-- ats-score:start -->` and `<!-- ats-score:end -->` in the release notes. `release-cv.yml` puts a placeholder there; older releases get the section appended. Reruns update it in place.
 - A low score never fails the workflow; errors do.
 - To find the release created by the triggering run, it compares the latest release's `publishedAt` with the run's `run_started_at`. Don't use `createdAt`: for releases it's the date of the commit.
